@@ -1,6 +1,7 @@
 import { Link } from "@nextui-org/link";
 import { Head } from "./head";
 import { Navbar } from "@/components/navbar";
+import { Footer } from './../components/footer/index';
 
 export default function DefaultLayout({
   children,
@@ -14,17 +15,9 @@ export default function DefaultLayout({
       <main className="container mx-auto max-w-7xl px-6 flex-grow pt-8">
         {children}
       </main>
-      <footer className="w-full flex items-center justify-center py-3 ">
-        <Link
-          isExternal
-          className="flex items-center gap-1 text-current"
-          href="https://nextui-docs-v2.vercel.app?utm_source=next-pages-template"
-          title="nextui.org homepage"
-        >
-          <span className="text-default-600">Desenvolvido por </span>
-          <p className="text-foreground">Pedro Dias</p>
-        </Link>
-      </footer>
+      <div>
+     <Footer/>
+      </div>
     </div>
   );
 }
