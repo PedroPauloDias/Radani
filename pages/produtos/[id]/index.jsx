@@ -80,6 +80,7 @@ export default function ProdutoIndividual() {
   // Renderiza os detalhes do produto encontrado
   return (
     <DefaultLayout>
+      <h2>Visualização individual </h2>
       <div className="flex flex-col items-center justify-center py-8 md:py-10">
         <Image src={produto.imagem} alt={produto.titulo} className="max-w-lg"  />
         <h1 className="text-2xl font-bold">{produto.titulo}</h1>

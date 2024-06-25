@@ -66,7 +66,7 @@ export default function Produtos() {
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
         <div className="inline-block max-w-lg text-center justify-center">
-          <h1 className={title()}>Pricing</h1>
+          <h1 className='m-8'>Todos os Produtos </h1>
           <div
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {produtos.map((produto) => (
