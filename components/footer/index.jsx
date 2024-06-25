@@ -33,12 +33,7 @@ export const Footer = () => {
         </div>
 
       </div>
-      <Link
-        isExternal
-        className="flex flex-row items-center gap-1 text-current "
-        href="https://nextui-docs-v2.vercel.app?utm_source=next-pages-template"
-        title="nextui.org homepage"
-      >
+ 
 
 
         <div className='w-full flex  flex-row items-center justify-center gap-2 text-xs'>
@@ -46,7 +41,6 @@ export const Footer = () => {
           <p className="text-default-500 ">Pedro Dias</p>
           <p className="text-default-600">@ Todos os direitos reservados</p>
         </div>
-      </Link>
     </footer>
   )
 }
