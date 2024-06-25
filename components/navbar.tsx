@@ -14,7 +14,8 @@ import { Input } from "@nextui-org/input";
 import { link as linkStyles } from "@nextui-org/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
-
+import { FaInstagram, FaSquareFacebook } from "react-icons/fa6";
+import { BsTwitterX } from "react-icons/bs";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import {
@@ -25,7 +26,7 @@ import {
   SearchIcon,
   Logo,
 } from "@/components/icons";
-import LogoRadani from "../public/logoRadani.png"
+import LogoRadani from "../public/logo2.png"
 import Image from "next/image";
 
 export const Navbar = () => {
@@ -36,7 +37,7 @@ export const Navbar = () => {
         inputWrapper: "bg-default-100",
         input: "text-sm",
       }}
- 
+
       labelPlacement="outside"
       placeholder="Search..."
       startContent={
@@ -49,14 +50,14 @@ export const Navbar = () => {
   return (
     <NextUINavbar maxWidth="xl" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-        <NavbarBrand className="gap-3 max-w-fit">
+        <NavbarBrand className="gap-3 max-w-28 min-w-20">
           <NextLink className="flex justify-start items-center gap-1" href="/">
-            
-            <Image src={LogoRadani} height={200} width={350} alt='Logo da empresa Radani'/>
+
+            <Image src={LogoRadani} height={200} width={350} alt='Logo da empresa Radani' />
             <p className="font-bold text-inherit"></p>
           </NextLink>
         </NavbarBrand>
-        <div className="hidden lg:flex gap-4 justify-start ml-2">
+        <div className="hidden sm:flex gap-4 justify-start ml-2">
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
               <NextLink
@@ -79,7 +80,7 @@ export const Navbar = () => {
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-2">
-         
+
           <ThemeSwitch />
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
@@ -89,18 +90,16 @@ export const Navbar = () => {
             as={Link}
             className="text-sm font-normal text-default-600 bg-default-100"
             href={siteConfig.links.sponsor}
-         
+
             variant="flat"
           >
-           Login
+            Login
           </Button>
         </NavbarItem>
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-        <Link isExternal href={siteConfig.links.github}>
-          <GithubIcon className="text-default-500" />
-        </Link>
+      
         <ThemeSwitch />
         <NavbarMenuToggle />
       </NavbarContent>
@@ -123,8 +122,15 @@ export const Navbar = () => {
               >
                 {item.label}
               </Link>
+              
             </NavbarMenuItem>
           ))}
+          <h2 className=' mt-16'>Redes Sociais</h2>
+              <div className='w-full flex gap-8 mt-2' >
+                <p><FaSquareFacebook size={20} /></p>
+                <p><FaInstagram size={20} /></p>
+                <p><BsTwitterX size={20} /></p>
+              </div>
         </div>
       </NavbarMenu>
     </NextUINavbar>
