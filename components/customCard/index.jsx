@@ -20,7 +20,8 @@ export default function CustomCard({imagem, titulo, descricao, tamanho, referenc
                 src={imagem}
                 width={270}
         />
-        <button className='flex gap-4 text-lg items-center text-center justify-end' >ver mais <LuMoveRight />
+        <button
+          className='flex gap-4 text-lg items-center text-center justify-end' >ver mais <LuMoveRight />
         </button>
         
             </CardBody>
