@@ -70,8 +70,7 @@ export default function Produtos() {
           <div
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {produtos.map((produto) => (
-            <Link href={`/produtos/${produto.id}`}>
-              <>
+            <Link href={`/produtos/${produto.id}` } key={produto.id}>
               <CustomCard
                 key={produto.id}
                 imagem={produto.imagem}
@@ -80,7 +79,6 @@ export default function Produtos() {
                 tamanho={produto.tamanho}
                 referencia={produto.referencia}
               />
-              </>
             </Link>
             ))}
           </div>
