@@ -77,7 +77,8 @@ export default function Produtos() {
                 titulo={produto.titulo}
                 descricao={produto.descricao}
                 tamanho={produto.tamanho}
-                referencia={produto.referencia}
+                    referencia={produto.referencia}
+                    descButton='ver mais'
               />
             </Link>
             ))}
