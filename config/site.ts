@@ -10,15 +10,15 @@ export const siteConfig = {
     },
     {
       label: "Body",
-      href: "/docs",
+      href: "/Body",
     },
     {
       label: "Kit 3 peças",
-      href: "/kit",
+      href: "/",
     },
     {
       label: "Vestidos",
-      href: "/pricing",
+      href: "/",
     },
     {
       label: "Bandanas",
@@ -36,22 +36,22 @@ export const siteConfig = {
     },
     {
       label: "Body",
-      href: "/docs",
+      href: "/Body",
     },
     {
       label: "Kit 3 peças",
-      href: "/pricing",
+      href: "/",
     },
     {
       label: "Vestidos",
-      href: "/pricing",
+      href: "/",
     },
     {
       label: "Bandanas",
-      href: "/blog",
+      href: "/",
     },
     {
-      label: "sobre nós",
+      label: "Sobre nós",
       href: "/about",
     },
     {
