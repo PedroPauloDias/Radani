@@ -8,11 +8,19 @@ import CustomModal from './../../components/CustomModal/index';
 import { title } from "@/components/primitives";
 
 
-
+interface Produto {
+  id: string;
+  name: string;
+  description: string;
+  image?: string; // Image pode ser opcional dependendo do seu modelo de dados
+  tamanho: string;
+  ref: string;
+  _id: string;
+}
 
 export default function Produtos() {
 
-  const [produtos, setProdutos] = useState([])
+  const [produtos, setProdutos] = useState<Produto[]>([])
 
   useEffect(() => {
     async function fetchProducts() {
@@ -27,7 +35,7 @@ export default function Produtos() {
     fetchProducts();
   }, []);
 
-  function base64ToImage(base64String) {
+  function base64ToImage(base64String?: string) {
     if (typeof window !== 'undefined') {
       const img = new Image();
       img.src = 'data:image/png;base64,' + base64String;
