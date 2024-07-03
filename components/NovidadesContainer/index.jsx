@@ -59,6 +59,7 @@ export default function NovidadesContainer() {
               descricao={produto.descricao}
               tamanho={produto.tamanho}
               referencia={produto.referencia}
+              descButton='ver todos'
             />
           ))
         }

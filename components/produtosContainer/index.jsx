@@ -65,7 +65,12 @@ const produtos = [
 
 
 
+
 export default function ProdutosContainer() {
+
+
+
+
   return (
     <div className='w-full flex flex-col gap-2 my-8'>
       <h2 className={title({ size: "sm" })} >Produtos</h2>
@@ -82,6 +87,7 @@ export default function ProdutosContainer() {
               descricao={produto.descricao}
               tamanho={produto.tamanho}
               referencia={produto.referencia}
+              descButton='detalhes'
             />
           ))
         }    

@@ -13,6 +13,11 @@ import NovidadesContainer from './../components/NovidadesContainer/index';
 import Categorias from './../components/categorias/index';
 
 export default function IndexPage() {
+
+
+
+
+  
   return (
     <DefaultLayout>
       <HeroHeader />

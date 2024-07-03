@@ -17,8 +17,8 @@ export const siteConfig = {
       href: "/",
     },
     {
-      label: "Vestidos",
-      href: "/",
+      label: "Pagão",
+      href: "/ConjuntoPagao",
     },
     {
       label: "Bandanas",
@@ -43,8 +43,8 @@ export const siteConfig = {
       href: "/",
     },
     {
-      label: "Vestidos",
-      href: "/",
+      label: "Pagão",
+      href: "/ConjuntoPagao",
     },
     {
       label: "Bandanas",
