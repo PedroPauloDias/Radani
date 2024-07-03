@@ -76,9 +76,9 @@ export default function ProdutosContainer() {
 
 
   return (
-    <div className='w-full flex flex-col gap-2 my-8'>
-      <div className='cursor-pointer'>
-      <h2 onClick={() => router.push(`/produtos`)} className={title({ size: "sm", })}  >Produtos</h2>
+    <div className="w-full flex flex-col gap-2 my-8">
+      <div className="cursor-pointer">
+      <button onClick={() => router.push(`/produtos`)} className={title({ size: "sm", })}  >Produtos</button>
       </div>
       <div className="w-full  h-[4px] mb-8  bg-gradient-to-r from-[#ee9c2e] via-[#85adb5] to-transparent "><div></div></div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
