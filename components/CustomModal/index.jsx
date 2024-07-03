@@ -10,7 +10,7 @@ export default function CustomModal({ children , modalTitle}) {
   return (
     <>
       <Button onPress={onOpen}
-      className="bg-zinc-800 flex items-center justify-center mt-6"
+      className="dark:bg-zinc-800 flex items-center justify-center mt-6"
       >Ver todos os detalhes
       <LuMoveRight className="mt-1" />
       </Button>

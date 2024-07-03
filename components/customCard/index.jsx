@@ -38,7 +38,7 @@ export default function CustomCard({ imagem, titulo, descricao, tamanho, referen
        
         <CustomModal className='' modalTitle={modalTitle}>
           
-          <Card className="py-4 bg-zinc-800">
+          <Card className="py-4 dark:bg-zinc-800">
             <CardHeader className="pb-2 pt-2 px-4 flex-col items-start">
               <div className='flex flex-col gap-2'>
               <p className="font-bold text-large">Nome: {titulo}</p>
