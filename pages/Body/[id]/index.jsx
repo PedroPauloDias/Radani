@@ -1,12 +1,12 @@
-import { useRouter } from 'next/link';
 import { useEffect, useState } from 'react';
 import DefaultLayout from '@/layouts/default';
 import Image from 'next/image';
 import { getProductsById } from '../../../services/productServices';
+import { useRouter } from 'next/navigation';
 export default function DetalhesDoProduto() {
   const router = useRouter();
   const { id } = router.query; 
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 

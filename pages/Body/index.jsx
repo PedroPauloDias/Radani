@@ -54,7 +54,6 @@ export default function BodyPage() {
             <div
               className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {categories.map((category) => (
-                <>
                 <CustomCard
                   key={category._id}
                   imagem={'data:image/png;base64,' + category.image}
@@ -64,10 +63,10 @@ export default function BodyPage() {
                   referencia={category.ref}
                   descButton='ver mais'
                   classe='id'
-                  id={category._id}
+                    id={category._id}
+                    modalTitle={'Detalhes do ' + category.name}
+
                 />
-                    <p>{category._id}</p>
-                    </>
               ))}
             </div>
           </div>

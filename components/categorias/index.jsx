@@ -3,6 +3,7 @@ import { title } from '@/components/primitives';
 import { getAllCategories } from '../../services/categoryService';
 import CustomCard from '../customCard';
 import Link from 'next/link';
+import DisplayCard from './../DisplayCard/index';
 
 export default function Categorias() {
   const [categories, setCategories] = useState([]);
@@ -51,7 +52,7 @@ export default function Categorias() {
         {/* Mapeia as categorias para exibi-las */}
         {categories.map(category => (
           <div key={category.id} >
-              <CustomCard
+              <DisplayCard 
                 key={category.id}
                 imagem={'data:image/png;base64,' + category.image}
                 titulo={category.name}

@@ -1,26 +1,21 @@
+
+
+
 import DefaultLayout from "@/layouts/default";
 
 import CustomCard from "@/components/customCard";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { getAllProducts } from './../../services/productServices';
-import CustomModal from './../../components/CustomModal/index';
+import { getAllProducts } from '../../services/productServices';
+import CustomModal from '../../components/CustomModal/index';
 import { title } from "@/components/primitives";
 
 
-interface Produto {
-  id: string;
-  name: string;
-  description: string;
-  image?: string; // Image pode ser opcional dependendo do seu modelo de dados
-  tamanho: string;
-  ref: string;
-  _id: string;
-}
+
 
 export default function Produtos() {
 
-  const [produtos, setProdutos] = useState<Produto[]>([])
+  const [produtos, setProdutos] = useState([])
 
   useEffect(() => {
     async function fetchProducts() {
@@ -35,7 +30,7 @@ export default function Produtos() {
     fetchProducts();
   }, []);
 
-  function base64ToImage(base64String?: string) {
+  function base64ToImage(base64String) {
     if (typeof window !== 'undefined') {
       const img = new Image();
       img.src = 'data:image/png;base64,' + base64String;
@@ -59,7 +54,7 @@ export default function Produtos() {
   return (
     <DefaultLayout>
          <div className='w-full flex flex-col gap-2 my-8'>
-         <h2 className={title({ size: "sm" })} >Todos os Produtos </h2>
+         <h2   className={title({ size: "sm" })} >Todos os Produtos </h2>
           <div className="w-full h-[4px] mb-8 bg-gradient-to-r from-[#ee9c2e] via-[#85adb5]   to-[#ee9c2e]"></div>
 
           <div
