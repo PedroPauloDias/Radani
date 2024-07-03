@@ -1,26 +1,15 @@
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import DefaultLayout from '@/layouts/default';
 import { getProductsById } from '../../../services/productServices';
 import { useEffect, useState } from 'react';
 import CustomCard from './../../../components/customCard/index';
 
 export default function ProdutoIndividual() {
- 
+  const router = useRouter();
+  const { id } = router.query;
   const [produtos, setProdutos] = useState([]); // Inicializa como um array vazio
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-
-    const router = useRouter();
-    const { query } = router;
-    let id = query.id || null;
-  
-    useEffect(() => {
-      if (query && query.id) {
-        id = query.id;
-        // Coloque seu código que depende de `id` aqui
-      }
-    }, [query]);
 
   useEffect(() => {
     const fetchProduto = async () => {
@@ -28,7 +17,7 @@ export default function ProdutoIndividual() {
         try {
           const produtoData = await getProductsById(id);
           console.log("produtoData:", produtoData.data);
-          setProdutos([produtoData.data]);
+          setProdutos([produtoData.data]); // Armazena o produto em um array
         } catch (err) {
           setError('Erro ao buscar produto');
           console.error(err);
