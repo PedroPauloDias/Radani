@@ -2,8 +2,7 @@ import { useRouter } from 'next/link';
 import { useEffect, useState } from 'react';
 import DefaultLayout from '@/layouts/default';
 import Image from 'next/image';
-import { getProductsById } from '../../services/productServices';
-
+import { getProductsById } from '../../../services/productServices';
 export default function DetalhesDoProduto() {
   const router = useRouter();
   const { id } = router.query; 
