@@ -4,7 +4,6 @@ import React from 'react';
 import { title } from '@/components/primitives';
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 import Banner from '../../public/banner1.png';
-import CustomCard from '../CustomCard/index';
 import ref440 from '../../public/ref440.jpg';
 import ref512 from '../../public/ref512.jpg';
 import ref520 from '../../public/ref520.jpg';
@@ -86,7 +85,7 @@ export default function ProdutosContainer() {
         {
           produtos.map((produto) => (
             <DisplayCard
-              key={produto._id}
+              key={produto.id}
               imagem={produto.imagem}
               titulo={produto.titulo}
               descricao={produto.descricao}

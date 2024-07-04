@@ -52,7 +52,7 @@ export default function Produtos() {
             {produtos.map((produto) => (
 
               <CustomCard
-                key={produto._id}
+                key={produto.id}
                 imagem={'data:image/png;base64,' + produto.image}
                 titulo={produto.name}
                 descricao={produto.description}
@@ -60,7 +60,7 @@ export default function Produtos() {
                 referencia={produto.ref}
                 descButton='ver mais'
                 classe='id'
-                id={produto._id}
+                id={produto.id}
                 modalTitle={'Detalhes do ' + produto.name}
 
               />

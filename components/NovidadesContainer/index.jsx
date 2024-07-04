@@ -26,7 +26,7 @@ export default function NovidadesContainer() {
         {
           produtos.map((produto) => (
             <DisplayCard
-              key={produto._id}
+              key={produto.id}
               imagem={produto.imagem}
               titulo={produto.titulo}
               descricao={produto.descricao}

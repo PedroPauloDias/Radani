@@ -79,7 +79,7 @@ export default function ProdutoIndividual() {
           referencia={produto.ref}
           descButton='ver mais'
           classe='id'
-          id={produto._id}
+          id={produto.id}
           />
           
           </>
