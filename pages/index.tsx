@@ -3,8 +3,7 @@ import DefaultLayout from "@/layouts/default";
 import HeroHeader from './../components/HeroHeader/index';
 import ProdutosContainer from '../components/produtosContainer/index';
 import NovidadesContainer from './../components/NovidadesContainer/index';
-import Categorias from '../components/Categorias/index';
-import CustomSkeleton from './../components/skeleton/index';
+import Categorias from './../components/Categorias/index';
 
 export default function IndexPage() {
   
