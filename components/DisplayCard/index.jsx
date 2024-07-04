@@ -1,23 +1,29 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import { Card, CardHeader, CardBody, } from "@nextui-org/react";
 
 import Image from 'next/image';
 import { LuMoveRight } from "react-icons/lu";
 import { useRouter } from 'next/navigation'
 import CustomModal from '../CustomModal';
+import CustomSkeleton from '../skeleton';
 
-export default function DisplayCard({ imagem, titulo, descricao, tamanho, referencia, descButton, classe, id ,modalTitle}) {
-
+export default function DisplayCard({ imagem, titulo, descricao, tamanho, referencia, descButton, classe, id , loading }) {
   const router = useRouter()
 
   const handleClick = () => {
     if (classe === 'id') {
       router.push(`produtos/${id}`);
     } else {
-      router.push(`/${titulo}`);
+      router.push(`categorias/${titulo}`);
     }
   };
+
+  if (loading) {
+    return <CustomSkeleton />; 
+  }
+
+  
 
   return (
     <Card className="py-4">

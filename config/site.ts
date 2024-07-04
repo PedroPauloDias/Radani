@@ -10,7 +10,7 @@ export const siteConfig = {
     },
     {
       label: "Body",
-      href: "/Body",
+      href: "/categorias/Body",
     },
     {
       label: "Kit 3 peças",
@@ -22,7 +22,7 @@ export const siteConfig = {
     },
     {
       label: "Bandanas",
-      href: "/blog",
+      href: "/bandanas",
     },
     {
       label: "Sobre nós",
@@ -36,7 +36,7 @@ export const siteConfig = {
     },
     {
       label: "Body",
-      href: "/Body",
+      href: "/categorias/Body",
     },
     {
       label: "Kit 3 peças",
@@ -48,7 +48,7 @@ export const siteConfig = {
     },
     {
       label: "Bandanas",
-      href: "/",
+      href: "/bandanas",
     },
     {
       label: "Sobre nós",

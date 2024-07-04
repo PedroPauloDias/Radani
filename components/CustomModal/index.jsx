@@ -10,9 +10,9 @@ export default function CustomModal({ children , modalTitle}) {
   return (
     <>
       <Button onPress={onOpen}
-      className="dark:bg-zinc-800 flex items-center justify-center mt-6"
+      className="dark:bg-zinc-800 flex items-center justify-center mt-6 light:bg-zinc-300"
       >Ver todos os detalhes
-      <LuMoveRight className="mt-1" />
+      <LuMoveRight className="mt-.5" />
       </Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement={modalPlacement}  backdrop={backdrop} >
         <ModalContent>
@@ -20,7 +20,7 @@ export default function CustomModal({ children , modalTitle}) {
             <>
               <ModalHeader className="flex flex-col gap-1 mt-4 text-2xl">
                 {modalTitle}
-              <div className="w-full h-[4px] mb-8 bg-gradient-to-r from-[#ee9c2e] via-[#85adb5]  to-[#ee9c2e] mt-2"></div>
+              <div className="w-full h-[4px]  bg-gradient-to-r from-[#ee9c2e] via-[#85adb5]  to-[#ee9c2e] mt-2"></div>
               </ModalHeader>
               <ModalBody >
              {children}

@@ -3,24 +3,22 @@
 
 import DefaultLayout from "@/layouts/default";
 
-import CustomCard from "@/components/CustomCard";
-import Link from "next/link";
+import CustomCard from "@/components/customCard";
 import { useEffect, useState } from "react";
-import { getAllProducts } from '../../services/productServices';
-import CustomModal from '../../components/CustomModal/index';
 import { title } from "@/components/primitives";
+import { getAllProductsTag } from "../../../services/productServices";
 
 
 
 
-export default function Produtos() {
+export default function TagPages() {
 
   const [produtos, setProdutos] = useState([])
 
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await getAllProducts();
+        const response = await getAllProductsTag();
         console.log("Produtos:", response.data);
         setProdutos(response.data);
       } catch (error) {
@@ -59,22 +57,7 @@ export default function Produtos() {
 
           <div
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {produtos.map((produto) => (
-
-              <CustomCard
-                key={produto._id}
-                imagem={'data:image/png;base64,' + produto.image}
-                titulo={produto.name}
-                descricao={produto.description}
-                tamanho={produto.tamanho}
-                referencia={produto.ref}
-                descButton='ver mais'
-                classe='id'
-                id={produto._id}
-                modalTitle={'Detalhes do ' + produto.name}
-
-              />
-            ))}
+    
           </div>
         </div>
     </DefaultLayout>

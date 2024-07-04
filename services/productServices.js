@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 const baseUrl = 'https://radani-api.vercel.app/produtos';
-export  function getAllProducts() {
+export async function getAllProducts() {
   
-  const response =  axios.get(`${baseUrl}`)  
+  const response = await axios.get(`${baseUrl}`)  
   return response;
 };
 
@@ -28,20 +28,14 @@ export const getSingleProduct = async (id) => {
   }
 };
 
-export async function getProductsByTag(req , tag) {
+
+
+
+export async function getAllProductsTag(tag) {
   try {
-    // Faz a requisição GET para o endpoint '/produtos' com os parâmetros de consulta 'tag'
-    const response = await axios.get(`${baseUrl}?tag=${tag}`, {
-    
-    });
-    // Retorna os dados da resposta
-    return response;
+    const response = await axios.get(`${baseUrl}?tag=${tag}`);
+    return response.data; // Retorna apenas os dados da resposta
   } catch (error) {
-    // Se ocorrer um erro, lança uma exceção ou retorna null, dependendo da sua necessidade
-    throw new Error(`Erro ao buscar tags: ${error.message}`);
+    throw new Error(`Erro ao buscar produtos pela tag: ${error.message}`);
   }
 }
-export  function getAllProductsTag(tag) {
-  const response =  axios.get(`${baseUrl}/${tag}`)  
-  return response;
-};
