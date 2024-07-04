@@ -3,7 +3,7 @@ import DefaultLayout from "@/layouts/default";
 import HeroHeader from './../components/HeroHeader/index';
 import ProdutosContainer from '../components/produtosContainer/index';
 import NovidadesContainer from './../components/NovidadesContainer/index';
-import CategoriasContainer from '../components/Categorias';
+import CategoriasContainer from '../components/CategoriasContainer/index';
 
 export default function IndexPage() {
   return (
