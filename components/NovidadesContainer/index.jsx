@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { title } from '../primitives'
 import ref440 from '../../public/ref440.jpg';
-import  CustomCard  from '../../components/CustomCard';
+import CustomCard from '@/components/CustomCard';
+import DisplayCard from '../DisplayCard';
 
 
 const produtos = [
@@ -25,7 +26,7 @@ export default function NovidadesContainer() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ">
         {
           produtos.map((produto) => (
-            <CustomCard
+            <DisplayCard
               key={produto._id}
               imagem={produto.imagem}
               titulo={produto.titulo}
@@ -33,7 +34,6 @@ export default function NovidadesContainer() {
               tamanho={produto.tamanho}
               referencia={produto.referencia}
               descButton='ver todos'
-              loading={loading} 
 
             />
           ))
