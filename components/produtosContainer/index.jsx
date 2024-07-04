@@ -2,8 +2,6 @@
 
 import React from 'react';
 import { title } from '@/components/primitives';
-import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
-import Banner from '../../public/banner1.png';
 import ref440 from '../../public/ref440.jpg';
 import ref512 from '../../public/ref512.jpg';
 import ref520 from '../../public/ref520.jpg';
@@ -11,8 +9,7 @@ import ref530 from '../../public/ref530.jpg';
 import ref541 from '../../public/ref541.jpg';
 import ref455 from '../../public/ref455.jpg';
 import { useRouter } from 'next/navigation';
-import DisplayCard from '../DisplayCard';
-
+import CustomCard from '../customCard';
 
 
 const produtos = [
@@ -84,7 +81,7 @@ export default function ProdutosContainer() {
 
         {
           produtos.map((produto) => (
-            <DisplayCard
+            <CustomCard
               key={produto.id}
               imagem={produto.imagem}
               titulo={produto.titulo}
