@@ -3,7 +3,7 @@ import DefaultLayout from "@/layouts/default";
 import { useEffect, useState } from "react";
 import { getAllProducts } from '../../services/productServices';
 import { title } from "@/components/primitives";
-import CustomCard from './../../components/CustomCard/index';
+import CustomCard from "@/components/customCard";
 
 export default function Produtos() {
   const [produtos, setProdutos] = useState([])

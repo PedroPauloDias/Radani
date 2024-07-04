@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import DefaultLayout from "@/layouts/default";
 import { getProductsByTag } from '../../../services/categoryService';
-import  CustomCard  from '@/components/CustomCard';
+import  CustomCard  from '@/components/customCard';
 
 export default function BodyPage() {
   const [categories, setCategories] = useState([]);
