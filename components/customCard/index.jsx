@@ -5,7 +5,7 @@ import Image from 'next/image';
 import CustomModal from '../CustomModal';
 import CustomSkeleton from '../skeleton';
 
-export default function CustomCard({ imagem, titulo, descricao, tamanho, referencia, descButton, classe, id ,modalTitle,loading}) {
+export default function CustomCard({ imagem, titulo, descricao, tamanho, cod , referencia, descButton, classe, id ,modalTitle,loading}) {
 
   if (loading) {
     return <CustomSkeleton />;
@@ -45,9 +45,9 @@ export default function CustomCard({ imagem, titulo, descricao, tamanho, referen
             <div className='flex flex-col gap-2'>
               <p className="font-bold text-large">Nome: {titulo}</p>
               <p className="text-tiny  font-bold">Descrição: {descricao}</p>
-              <p className="text-tiny  font-bold">tamanho: {descricao}</p>
+              <p className="text-tiny  font-bold">tamanho: {tamanho}</p>
               <p className="text-tiny  font-bold">nº de referencia: {referencia}</p>
-              <small className="text-default-500">Código: 5468461681861</small>
+                <small className="text-default-500">Código: {cod}</small>
               </div>
             </CardBody>
           </Card>

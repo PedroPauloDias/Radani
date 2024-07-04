@@ -71,7 +71,7 @@ export default function Categoria() {
                       imagem={'data:image/png;base64,' + category.image}
                       titulo={category.name}
                       descricao={category.description}
-                      tamanho={category.tamanho}
+                      tamanho={category.sizes}
                       referencia={category.ref}
                       tag={category.tag}
                       descButton='ver mais'
@@ -79,6 +79,7 @@ export default function Categoria() {
                       id={category.tag}
                       modalTitle={'Detalhes do ' + category.name}
                       loading={loading}
+                      cod={category.cod}
                     />
                   ))
                 )}
