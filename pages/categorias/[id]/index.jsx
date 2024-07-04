@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 import { getAllCategories, getProductsByTag } from '../../../services/categoryService';
-import  CustomSkeleton  from '@/components/skeleton';
-import  CustomCard  from '@/components/customCard';
-import  DefaultLayout  from '@/layouts/default';
+import CustomSkeleton from '@/components/skeleton';
+import CustomCard from '@/components/customCard';
+import DefaultLayout from '@/layouts/default';
 
 export default function Categoria() {
 
@@ -53,51 +53,38 @@ export default function Categoria() {
     }
   }, [categories]);
 
+          return (
+          <DefaultLayout>
+            <div className='w-full flex flex-col gap-2 my-8'>
+              <h2 className='text-3xl font-semibold mb-2 '> {id}</h2>
+              <div className="w-full h-[4px] mb-8 bg-gradient-to-r from-[#ee9c2e] via-[#85adb5] to-transparent"></div>
 
-
-  
- 
-
-  if (error) {
-    return <div>{error}</div>;
-  }
-
-  if (!categories || categories.length === 0) {
-    return <div>A categoria não foi encontrado</div>;
-  }
-
-  return (
-    <DefaultLayout>
-    <div className='w-full flex flex-col gap-2 my-8'>
-        <h2 className='text-3xl font-semibold mb-2 '> {id}</h2>
-      <div className="w-full h-[4px] mb-8 bg-gradient-to-r from-[#ee9c2e] via-[#85adb5] to-transparent"></div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {loading ? (
-          // Renderiza o esqueleto enquanto está carregando
-          <CustomSkeleton />
-        ) : (
-          // Mapeia os produtos para exibir os cards
-          categories.map(category => (
-            <CustomCard
-              key={category.id}
-              imagem={'data:image/png;base64,' + category.image}
-              titulo={category.name}
-              descricao={category.description}
-              tamanho={category.tamanho}
-              referencia={category.ref}
-              tag={category.tag}
-              descButton='ver mais'
-              classe='tag'
-            id={category.tag}
-            modalTitle={'Detalhes do ' + category.name}
-            loading={loading}
-          />
-        ))
-      )}
-      </div>
-    </div>
-  </DefaultLayout>
-  )
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {loading ? (
+                  // Renderiza o esqueleto enquanto está carregando
+                  <CustomSkeleton />
+                ) : (
+                  // Mapeia os produtos para exibir os cards
+                  categories.map(category => (
+                    <CustomCard
+                      key={category.id}
+                      imagem={'data:image/png;base64,' + category.image}
+                      titulo={category.name}
+                      descricao={category.description}
+                      tamanho={category.tamanho}
+                      referencia={category.ref}
+                      tag={category.tag}
+                      descButton='ver mais'
+                      classe='tag'
+                      id={category.tag}
+                      modalTitle={'Detalhes do ' + category.name}
+                      loading={loading}
+                    />
+                  ))
+                )}
+              </div>
+            </div>
+          </DefaultLayout>
+          )
 }
 

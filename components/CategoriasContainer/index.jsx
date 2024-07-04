@@ -45,9 +45,8 @@ export default function CategoriasContainer() {
               imagem={'data:image/png;base64,' + category.image}
               titulo={category.name}
               descButton='Ver todos'
-              descricao=''
-              tamanho=''
-              referencia=''
+              classe='tag'
+              tag={category.tag}
             />
           ))
         )}

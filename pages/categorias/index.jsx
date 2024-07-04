@@ -15,7 +15,6 @@ export default function CategoriasPage()  {
         const response = await getAllCategories();
         console.log("Categorias correta:", response.data);
         setCategories(response.data);
-        var formattedString = (response.data.name);
         setLoading(false);
       } catch (error) {
         console.error("Erro ao buscar categorias:", error);
