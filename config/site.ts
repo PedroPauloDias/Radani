@@ -5,8 +5,8 @@ export const siteConfig = {
   description: "Make beautiful websites regardless of your design experience.",
   navItems: [
     {
-      label: "Home",
-      href: "/",
+      label: "Produtos",
+      href: "/produtos",
     },
     {
       label: "Body",
@@ -14,15 +14,15 @@ export const siteConfig = {
     },
     {
       label: "Kit 3 peças",
-      href: "/",
+      href: "/categorias/kit3Pecas",
     },
     {
       label: "Pagão",
-      href: "/ConjuntoPagao",
+      href: "/categorias/Pagao",
     },
     {
       label: "Bandanas",
-      href: "/bandanas",
+      href: "/categorias/bandanas",
     },
     {
       label: "Sobre nós",
@@ -31,32 +31,31 @@ export const siteConfig = {
   ],
   navMenuItems: [
     {
-      label: "Home",
-      href: "/",
-    },
-    {
       label: "Body",
-      href: "/categorias/Body",
-    },
+      href: "/categorias/Body",    },
     {
       label: "Kit 3 peças",
-      href: "/",
+      href: "/categorias/kit3Pecas",
     },
     {
       label: "Pagão",
-      href: "/ConjuntoPagao",
+      href: "/categorias/Pagao",
     },
     {
       label: "Bandanas",
-      href: "/bandanas",
-    },
-    {
-      label: "Sobre nós",
-      href: "/about",
+      href: "/categorias/bandanas",
     },
     {
       label: "Todos os Produtos",
       href: "/produtos",
+    },
+    {
+      label: "Todos as Categorias ",
+      href: "/categorias",
+    },
+    {
+      label: "Sobre nós",
+      href: "/about",
     },
   ],
   links: {

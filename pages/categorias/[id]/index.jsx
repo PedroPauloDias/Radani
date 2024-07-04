@@ -1,18 +1,24 @@
-'use client'
-import React, { useEffect, useState } from 'react';
-import DefaultLayout from "@/layouts/default";
-import { getProductsByTag } from '../../../services/categoryService';
-import  CustomCard  from '@/components/customCard';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react'
+import { getAllCategories, getProductsByTag } from '../../../services/categoryService';
 import  CustomSkeleton  from '@/components/skeleton';
+import  CustomCard  from '@/components/customCard';
+import  DefaultLayout  from '@/layouts/default';
 
-export default function BodyPage() {
+export default function Categoria() {
+
+  const router = useRouter();
+  const { id } = router.query;
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  console.log(id)
 
   useEffect(() => {
     async function fetchCategoriesByTag() {
       try {
-        const response = await getProductsByTag('Body');
+        const response = await getProductsByTag(id);
         console.log("Categoria:", response);
         setCategories(response);
         setLoading(false);
@@ -22,7 +28,7 @@ export default function BodyPage() {
       }
     }
     fetchCategoriesByTag();
-  }, []);
+  }, [categories]);
 
   function base64ToImage(base64String) {
     if (typeof window !== 'undefined') {
@@ -47,18 +53,31 @@ export default function BodyPage() {
     }
   }, [categories]);
 
+
+
+  
+ 
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  if (!categories || categories.length === 0) {
+    return <div>A categoria não foi encontrado</div>;
+  }
+
   return (
     <DefaultLayout>
-      <div className='w-full flex flex-col gap-2 my-8'>
-        <h2 className='text-3xl font-semibold'>Todos os Bodys</h2>
-        <div className="w-full h-[4px] mb-8 bg-gradient-to-r from-[#ee9c2e] via-[#85adb5] to-transparent"></div>
+    <div className='w-full flex flex-col gap-2 my-8'>
+        <h2 className='text-3xl font-semibold mb-2 '> {id}</h2>
+      <div className="w-full h-[4px] mb-8 bg-gradient-to-r from-[#ee9c2e] via-[#85adb5] to-transparent"></div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {loading ? (
-            // Renderiza o esqueleto enquanto está carregando
-            <CustomSkeleton />
-          ) : (
-            // Mapeia os produtos para exibir os cards
+          // Renderiza o esqueleto enquanto está carregando
+          <CustomSkeleton />
+        ) : (
+          // Mapeia os produtos para exibir os cards
           categories.map(category => (
             <CustomCard
               key={category.id}
@@ -67,16 +86,18 @@ export default function BodyPage() {
               descricao={category.description}
               tamanho={category.tamanho}
               referencia={category.ref}
+              tag={category.tag}
               descButton='ver mais'
-              classe='id'
-              id={category.id}
-              modalTitle={'Detalhes do ' + category.name}
-              loading={loading}
-            />
-          ))
-        )}
-        </div>
+              classe='tag'
+            id={category.tag}
+            modalTitle={'Detalhes do ' + category.name}
+            loading={loading}
+          />
+        ))
+      )}
       </div>
-    </DefaultLayout>
-  );
+    </div>
+  </DefaultLayout>
+  )
 }
+

@@ -8,14 +8,14 @@ import { useRouter } from 'next/navigation'
 import CustomModal from '../CustomModal';
 import CustomSkeleton from '../skeleton';
 
-export default function DisplayCard({ imagem, titulo, descricao, tamanho, referencia, descButton, classe, id , loading }) {
+export default function DisplayCard({ imagem, titulo, descricao, tag , tamanho, referencia, descButton, classe, id , loading }) {
   const router = useRouter()
 
   const handleClick = () => {
     if (classe === 'id') {
       router.push(`produtos/${id}`);
-    } else {
-      router.push(`categorias/${titulo}`);
+    } if (classe === 'tag') {
+      router.push(`categorias/${tag}`);
     }
   };
 
