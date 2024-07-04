@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { title } from '../primitives'
 import ref440 from '../../public/ref440.jpg';
-import CustomCard from '@/components/CustomCard';
 import DisplayCard from '../DisplayCard';
 
 

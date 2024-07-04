@@ -1,20 +1,12 @@
-
-
-
+'use client'
 import DefaultLayout from "@/layouts/default";
-
 import CustomCard from "@/components/CustomCard";
 import { useEffect, useState } from "react";
 import { getAllProducts } from '../../services/productServices';
 import { title } from "@/components/primitives";
 
-
-
-
 export default function Produtos() {
-
   const [produtos, setProdutos] = useState([])
-
   useEffect(() => {
     async function fetchProducts() {
       try {
