@@ -4,7 +4,7 @@ import { getAllCategories } from '../../services/categoryService';
 import DisplayCard from '../DisplayCard/index';
 import CustomSkeleton from '../skeleton'; // Importe o esqueleto de carregamento
 
-export default function Categorias() {
+export default function CategoriasContainer() {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
 
