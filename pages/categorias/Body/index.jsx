@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import DefaultLayout from "@/layouts/default";
 import { getProductsByTag } from '../../../services/categoryService';
 import  CustomCard  from '@/components/customCard';
+import  CustomSkeleton  from '@/components/skeleton';
 
 export default function BodyPage() {
   const [categories, setCategories] = useState([]);
@@ -53,7 +54,12 @@ export default function BodyPage() {
         <div className="w-full h-[4px] mb-8 bg-gradient-to-r from-[#ee9c2e] via-[#85adb5] to-transparent"></div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {categories.map(category => (
+        {loading ? (
+            // Renderiza o esqueleto enquanto está carregando
+            <CustomSkeleton />
+          ) : (
+            // Mapeia os produtos para exibir os cards
+          categories.map(category => (
             <CustomCard
               key={category.id}
               imagem={'data:image/png;base64,' + category.image}
@@ -67,8 +73,8 @@ export default function BodyPage() {
               modalTitle={'Detalhes do ' + category.name}
               loading={loading}
             />
-          )
-          )}
+          ))
+        )}
         </div>
       </div>
     </DefaultLayout>
