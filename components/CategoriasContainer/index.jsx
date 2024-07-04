@@ -36,7 +36,7 @@ export default function CategoriasContainer() {
           // Mapeia as categorias para exibir os cards
           categories.map(category => (
             <DisplayCard 
-              key={category.id}
+              key={category._id}
               imagem={'data:image/png;base64,' + category.image}
               titulo={category.name}
               descButton='Ver todos'

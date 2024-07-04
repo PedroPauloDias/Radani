@@ -4,10 +4,8 @@
 import DefaultLayout from "@/layouts/default";
 
 import CustomCard from "@/components/CustomCard";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getAllProducts } from '../../services/productServices';
-import CustomModal from '../../components/CustomModal/index';
 import { title } from "@/components/primitives";
 
 

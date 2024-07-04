@@ -1,13 +1,9 @@
 import React, { useState } from 'react'
 import { title } from '../primitives'
-import CustomCard from '../CustomCard'
 
 import ref440 from '../../public/ref440.jpg';
-import ref512 from '../../public/ref512.jpg';
-import ref520 from '../../public/ref520.jpg';
-import ref530 from '../../public/ref530.jpg';
-import ref541 from '../../public/ref541.jpg';
-import ref455 from '../../public/ref455.jpg';
+
+import  CustomCard  from '../../components/CustomCard';
 
 
 const produtos = [
