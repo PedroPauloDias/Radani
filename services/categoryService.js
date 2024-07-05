@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'http://localhost:3000/categorias';
+const baseUrl = 'https://radani-api.vercel.app/categorias';
 
 export async function getAllCategories() {
   const response = await axios.get(baseUrl);
