@@ -26,26 +26,6 @@ export default function Produtos() {
     fetchProducts();
   }, []);
 
-  function base64ToImage(base64String) {
-    if (typeof window !== 'undefined') {
-      const img = new Image();
-      img.src = 'data:image/png;base64,' + base64String;
-      img.onload = () => {
-        console.log('Imagem carregada:', img.width, img.height);
-        // Aqui você pode manipular a imagem após carregar, se necessário
-      };
-      img.onerror = (error) => {
-        console.error('Erro ao carregar imagem:', error);
-      };
-    }
-  }
-
-  useEffect(() => {
-    produtos.forEach(produto => {
-      base64ToImage(produto.image); // Executa apenas no cliente
-    });
-  }, [produtos]);
-
   return (
     <DefaultLayout>
       <div className='w-full flex flex-col gap-2 my-8'>
@@ -61,7 +41,7 @@ export default function Produtos() {
             produtos.map((produto) => (
               <CustomCard
                 key={produto.id}
-                imagem={'data:image/png;base64,' + produto.image}
+                imagem={produto.image}
                 titulo={produto.name}
                 descricao={produto.description}
                 tamanho={produto.tamanho}

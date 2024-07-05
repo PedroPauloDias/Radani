@@ -32,14 +32,7 @@ export default function Categoria() {
 
  
 
-  useEffect(() => {
-    // Verifica se categories é um array antes de tentar iterar sobre ele
-    if (Array.isArray(categories) && categories.length > 0) {
-      categories.forEach(category => {
-        base64ToImage(category.image); // Executa apenas no cliente
-      });
-    }
-  }, [categories]);
+
 
           return (
           <DefaultLayout>

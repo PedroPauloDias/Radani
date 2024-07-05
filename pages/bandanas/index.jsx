@@ -22,25 +22,7 @@ export default function BandanasPage() {
     fetchCategoriesByTag();
   }, []);
 
-  function base64ToImage(base64String) {
-    if (typeof window !== 'undefined') {
-      const img = new Image();
-      img.src = 'data:image/png;base64,' + base64String;
-      img.onload = () => {
-        console.log('Imagem carregada:', img.width, img.height);
-        // Aqui você pode manipular a imagem após carregar, se necessário
-      };
-      img.onerror = (error) => {
-        console.error('Erro ao carregar imagem:', error);
-      };
-    }
-  }
-
-  useEffect(() => {
-    categories.forEach(category => {
-      base64ToImage(category.image); // Executa apenas no cliente
-    });
-  }, [categories]);
+ 
 
   return (
     <DefaultLayout>
@@ -54,7 +36,7 @@ export default function BandanasPage() {
                 {categories.map((category) => (
                 <CustomCard
                   key={category.id}
-                  imagem={'data:image/png;base64,' + category.image}
+                  imagem={ category.image}
                   titulo={category.name}
                   descricao={category.description}
                   tamanho=''

@@ -30,27 +30,7 @@ export default function ProdutoIndividual() {
     fetchProduto();
   }, [id]);
 
-  useEffect(() => {
-    // Função para converter base64 para imagem
-    const base64ToImage = (base64String) => {
-      if (typeof window !== 'undefined') {
-        const img = new Image();
-        img.src = base64String;
-        img.onload = () => {
-          console.log('Imagem carregada:', img.width, img.height);
-          // Aqui você pode manipular a imagem após carregar, se necessário
-        };
-        img.onerror = (error) => {
-          console.error('Erro ao carregar imagem:', error);
-        };
-      }
-    };
 
-    // Executa base64ToImage para cada produto quando o estado produtos é atualizado
-    produtos.forEach((produto) => {
-      base64ToImage('data:image/png;base64,' + produto.image);
-    });
-  }, [produtos]);
 
   if (loading) {
     return <div>Carregando...</div>;
@@ -72,7 +52,7 @@ export default function ProdutoIndividual() {
      <div className="w-full h-[4px] mb-8 bg-gradient-to-r from-[#ee9c2e] via-[#85adb5]   to-[#ee9c2e]"></div>    
         <CustomCard
           
-          imagem={'data:image/png;base64,' + produto.image}
+          imagem={produto.image}
           titulo={produto.name}
           descricao={produto.description}
           tamanho={produto.tamanho}
