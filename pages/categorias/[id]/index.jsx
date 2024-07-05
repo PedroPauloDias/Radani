@@ -30,19 +30,7 @@ export default function Categoria() {
     fetchCategoriesByTag();
   }, [categories]);
 
-  function base64ToImage(base64String) {
-    if (typeof window !== 'undefined') {
-      const img = new Image();
-      img.src = 'data:image/png;base64,' + base64String;
-      img.onload = () => {
-        console.log('Imagem carregada:', img.width, img.height);
-        // Aqui você pode manipular a imagem após carregar, se necessário
-      };
-      img.onerror = (error) => {
-        console.error('Erro ao carregar imagem:', error);
-      };
-    }
-  }
+ 
 
   useEffect(() => {
     // Verifica se categories é um array antes de tentar iterar sobre ele
@@ -68,7 +56,7 @@ export default function Categoria() {
                   categories.map(category => (
                     <CustomCard
                       key={category.id}
-                      imagem={'data:image/png;base64,' + category.image}
+                      imagem={category.image}
                       titulo={category.name}
                       descricao={category.description}
                       tamanho={category.sizes}

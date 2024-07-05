@@ -42,7 +42,7 @@ export default function CategoriasContainer() {
           categories.map(category => (
             <DisplayCard 
               key={category.id}
-              imagem={'data:image/png;base64,' + category.image}
+              imagem={category.image}
               titulo={category.name}
               descButton='Ver todos'
               classe='tag'

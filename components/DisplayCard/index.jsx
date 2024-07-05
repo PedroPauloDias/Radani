@@ -39,6 +39,7 @@ export default function DisplayCard({ imagem, titulo, descricao, tag , tamanho, 
           src={imagem}
           width={270}
           height={270}
+          loading='lazy'
         />
         <button onClick={handleClick}
           className='flex items-center justify-end mt-2 gap-2'>

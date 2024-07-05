@@ -14,7 +14,7 @@ export default function CustomModal({ children , modalTitle}) {
       >Ver todos os detalhes
       <LuMoveRight className="mt-.5" />
       </Button>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement={modalPlacement}  backdrop={backdrop} >
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement={modalPlacement}  backdrop={backdrop} className="dark:bg-zinc-800">
         <ModalContent>
           {(onClose) => (
             <>
@@ -22,7 +22,7 @@ export default function CustomModal({ children , modalTitle}) {
                 {modalTitle}
               <div className="w-full h-[4px]  bg-gradient-to-r from-[#ee9c2e] via-[#85adb5]  to-[#ee9c2e] mt-2"></div>
               </ModalHeader>
-              <ModalBody >
+              <ModalBody  >
              {children}
               </ModalBody>
               <ModalFooter>

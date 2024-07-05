@@ -75,7 +75,6 @@ export default function CategoriasPage()  {
                 classe='tag'
               id={category.tag}
               modalTitle={'Detalhes do ' + category.name}
-              loading={loading}
             />
           ))
         )}
