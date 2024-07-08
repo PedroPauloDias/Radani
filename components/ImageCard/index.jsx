@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 export default function ImageCard({imagens}) {
   const [imagemPrincipal, setImagemPrincipal] = useState(imagens[0]);
-
   return (
     <div className="slider-container w-full max-w-3xl mx-auto relative">
       <div className="flex justify-center items-center">
@@ -16,7 +15,11 @@ export default function ImageCard({imagens}) {
       </div>
       <div className="thumbnails flex justify-center mt-4">
         {imagens.map((imagem, index) => (
-          <div key={index} className="cursor-pointer m-1 border-2 border-transparent hover:border-none" onClick={() => setImagemPrincipal(imagem)}>
+          <button
+            key={index}
+            className="cursor-pointer m-1 border-2 border-transparent hover:border-none"
+            onClick={() => setImagemPrincipal(imagem)}
+          >
             <Image
               src={imagem}
               alt={`Thumbnail ${index + 1}`}
@@ -24,7 +27,7 @@ export default function ImageCard({imagens}) {
               height={60}
               className="object-cover rounded-md"
             />
-          </div>
+          </button>
         ))}
       </div>
     </div>
