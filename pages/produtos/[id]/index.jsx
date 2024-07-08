@@ -53,7 +53,8 @@ export default function ProdutoIndividual() {
         <CustomCard
           
           imagem={produto.image}
-          titulo={produto.name}
+            titulo={produto.name}
+            cores={produto.cores}
           descricao={produto.description}
           tamanho={produto.tamanho}
           referencia={produto.ref}

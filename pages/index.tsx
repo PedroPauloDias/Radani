@@ -14,7 +14,7 @@ export default function IndexPage() {
         </div>
         <CategoriasContainer />
         <ProdutosContainer />
-        <NovidadesContainer />
+      <NovidadesContainer />
       </section>
     </DefaultLayout>
   );

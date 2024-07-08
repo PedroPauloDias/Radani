@@ -28,7 +28,7 @@ export default function Categoria() {
       }
     }
     fetchCategoriesByTag();
-  }, [categories]);
+  }, [id]);
 
  
 
@@ -46,11 +46,14 @@ export default function Categoria() {
                   <CustomSkeleton />
                 ) : (
                   // Mapeia os produtos para exibir os cards
-                  categories.map(category => (
-                    <CustomCard
+                      categories.map(category => (
+
+                        <CustomCard
+                          
                       key={category.id}
-                      imagem={category.image}
-                      titulo={category.name}
+                          imagem={category.image}
+                          titulo={category.name}
+                          cores={category.cores}
                       descricao={category.description}
                       tamanho={category.sizes}
                       referencia={category.ref}

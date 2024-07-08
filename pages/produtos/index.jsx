@@ -42,6 +42,7 @@ export default function Produtos() {
               <CustomCard
                 key={produto.id}
                 imagem={produto.image}
+                cores={produto.cores}
                 titulo={produto.name}
                 descricao={produto.description}
                 tamanho={produto.tamanho}
