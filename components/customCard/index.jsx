@@ -32,7 +32,7 @@ export default function CustomCard({ imagem, cores, titulo, descricao, tamanho, 
           <CustomModal className='' modalTitle={modalTitle}>
             <Card className="py-4">
               <CardHeader className="pb-2 pt-2 px-4 flex-col items-start">
-                <ImageCard imagens={cores} />
+                <ImageCard imagens={cores} loading={loading}/>
               </CardHeader>
               <CardBody className="overflow-visible py-2 px-5">
                 <div className='flex flex-col gap-2'>
