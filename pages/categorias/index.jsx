@@ -1,33 +1,35 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import DefaultLayout from '@/layouts/default';
+import CustomSkeleton from '@/components/skeleton';
+import DisplayCard from '@/components/DisplayCard/index';
+import MyPagination from '../../components/myPagination';
 import { getAllCategories } from '../../services/categoryService';
-import  DefaultLayout  from '@/layouts/default';
-import  CustomSkeleton from '@/components/skeleton';
-import  CustomCard  from '@/components/customCard';
-import DisplayCard from './../../components/DisplayCard/index';
+import axios from 'axios';
 
-export default function CategoriasPage()  {
+export default function CategoriasPage() {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(10);
 
   useEffect(() => {
-    async function fetchCategories() {
-      try {
-        const response = await getAllCategories();
-        console.log("Categorias correta:", response.data);
-        setCategories(response.data);
-        setLoading(false);
-      } catch (error) {
-        console.error("Erro ao buscar categorias:", error);
-        setLoading(false);
-      }
-    }
     fetchCategories();
-  }, []);
+  }, [currentPage]);
 
-    
+  async function fetchCategories() {
+    try {
+      const response = await getAllCategories(currentPage, itemsPerPage); // Chama getAllCategories com currentPage e itemsPerPage
+      setCategories(response.data); // Ajusta para setar diretamente response.data, assumindo que a estrutura de dados está correta
+      setLoading(false);
+    } catch (error) {
+      console.error('Erro ao buscar categorias:', error);
+      setLoading(false);
+    }
+  }
 
-
-
+  function handlePageChange(pageNumber) {
+    setCurrentPage(pageNumber);
+  }
 
   return (
     <DefaultLayout>
@@ -37,10 +39,8 @@ export default function CategoriasPage()  {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {loading ? (
-            // Renderiza o esqueleto enquanto está carregando
             <CustomSkeleton />
           ) : (
-            // Mapeia os produtos para exibir os cards
             categories.map(category => (
               <DisplayCard
                 key={category.id}
@@ -52,14 +52,13 @@ export default function CategoriasPage()  {
                 tag={category.tag}
                 descButton='ver mais'
                 classe='tag'
-              id={category.tag}
-              modalTitle={'Detalhes do ' + category.name}
-            />
-          ))
-        )}
+                id={category.tag}
+                modalTitle={'Detalhes do ' + category.name}
+              />
+            ))
+          )}
         </div>
       </div>
     </DefaultLayout>
   );
 }
-

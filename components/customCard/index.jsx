@@ -5,9 +5,9 @@ import CustomModal from '../CustomModal';
 import CustomSkeleton from '../skeleton';
 import ImageCard from './../ImageCard/index';
 
+
 export default function CustomCard({ imagem, cores, titulo, descricao, tamanho, cod, referencia, descButton, classe, id, modalTitle, loading }) {
 
-  console.log("CustomCard", cores, imagem);
 
   if (loading) {
     return <CustomSkeleton />;
