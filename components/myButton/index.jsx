@@ -5,7 +5,7 @@ import { extendVariants, Button } from "@nextui-org/react";
 export const MyButton = extendVariants(Button, {
   variants: {
     color: {
-      radani: "text-[#fff] bg-[#85adb5] dark:text-[#000] dark:bg-[#ff9100ce]",
+      radani: "text-[#fff] bg-[#85adb5] dark:text-[#fff] dark:bg-[#ff9100ce]",
       orange: "bg-[#885414] text-[#fff] dark:bg-[#d83e0a] dark:text-[#000]",
       violet: "bg-[#8b5cf6] text-[#fff] dark:bg-[#4a4e69] dark:text-[#ffcc00]",
     },
