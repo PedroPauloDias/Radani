@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import { getProductsByTag } from '../../../services/categoryService';
 import CustomSkeleton from '@/components/skeleton';
 import CustomCard from '@/components/customCard';
@@ -12,30 +12,31 @@ export default function Categoria() {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1); 
-  const itemsPerPage = 10; 
-  const [allPages, setAllPages] = useState(1)
-  
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+
   useEffect(() => {
-  async function fetchCategoriesByTag() {
-    try {
-      setLoading(true);
-      const response = await getProductsByTag(id, currentPage, itemsPerPage);
-      console.log("Categoria:", response);
+    async function fetchCategoriesByTag(page) {
+      try {
+        setLoading(true);
+        const response = await getProductsByTag(id, page);
+        console.log("Categoria:", response);
+
+        setCategories(response.produtos);
+        setTotalPages(response.totalPages);
+        setCurrentPage(response.currentPage);
+
+        setLoading(false);
+      } catch (error) {
+        console.error("Erro ao buscar categorias:", error);
+        setError(error); // Define o erro capturado para exibir na interface
+        setLoading(false);
+      }
+    }
     
-      setCategories(response.produtos);
+    fetchCategoriesByTag(currentPage); // Inicial carga com a página atual
 
-      setAllPages(response.totalPages)
-      console.log("Total pages154:", allPages)
-
-      setLoading(false);
-    } catch (error) {
-      console.error("Erro ao buscar categorias:", error);
-      setLoading(false);
-    }
-    }
-    fetchCategoriesByTag();
-  }, [id, currentPage]); 
+  }, [id, currentPage]); // Atualização base de dados aos utilizando assim useCallback
 
   function handlePageChange(pageNumber) {
     setCurrentPage(pageNumber); // Atualiza currentPage ao mudar de página
@@ -51,6 +52,9 @@ export default function Categoria() {
           {loading ? (
             // Renderiza o esqueleto enquanto está carregando
             <CustomSkeleton />
+          ) : error ? (
+            // Exibe mensagem de erro se houver um erro
+            <div>Erro ao carregar categorias: {error.message}</div>
           ) : (
             categories.map(category => (
               <CustomCard
@@ -73,7 +77,7 @@ export default function Categoria() {
           )}
         </div>
       </div>
-      <MyPagination totalPages={allPages} currentPage={currentPage} onPageChange={handlePageChange} />
+      <MyPagination totalPages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} />
     </DefaultLayout>
   );
 }

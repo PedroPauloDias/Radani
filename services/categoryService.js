@@ -26,10 +26,15 @@ export async function getCategories(tag) {
   return response;
 }
 
-export async function getProductsByTag(tag) {
+export async function getProductsByTag(tag, page = 1, pageSize = 10) {
   try {
-    const response = await axios.get(`${baseUrl}/${tag}`);
-    return response.data; 
+    const response = await axios.get(`${baseUrl}/${tag}`, {
+      params: {
+        page: page,
+        pageSize: pageSize
+      }
+    });
+    return response.data;
   } catch (error) {
     throw new Error(`Erro ao buscar produtos pela tag: ${error.message}`);
   }
