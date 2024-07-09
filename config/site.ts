@@ -13,16 +13,20 @@ export const siteConfig = {
       href: "/categorias/Body",
     },
     {
-      label: "Kit 3 peças",
-      href: "/categorias/kit3Pecas",
+      label: "Mijão",
+      href: "/categorias/Mijao",
     },
     {
       label: "Pagão",
       href: "/categorias/Pagao",
     },
     {
-      label: "Bandanas",
-      href: "/categorias/bandanas",
+      label: "Bandana",
+      href: "/categorias/Bandana",
+    },
+    {
+      label: "Novidades",
+      href: "/categorias/Novidades",
     },
     {
       label: "Sobre nós",
@@ -34,16 +38,20 @@ export const siteConfig = {
       label: "Body",
       href: "/categorias/Body",    },
     {
-      label: "Kit 3 peças",
-      href: "/categorias/kit3Pecas",
+      label: "Mijão",
+      href: "/categorias/Mijao",
     },
     {
       label: "Pagão",
       href: "/categorias/Pagao",
     },
     {
-      label: "Bandanas",
-      href: "/categorias/bandanas",
+      label: "Bandana",
+      href: "/categorias/Bandana",
+    },
+    {
+      label: "Novidades",
+      href: "/categorias/Novidades",
     },
     {
       label: "Todos os Produtos",
