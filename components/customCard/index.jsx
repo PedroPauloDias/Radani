@@ -14,9 +14,9 @@ export default function CustomCard({ imagem, cores, titulo, descricao, tamanho, 
   }
 
   return (
-    <Card className="py-4">
+    <Card className="py-4 p-2 ">
       <CardHeader className="pb-2 pt-2 px-4 flex-col items-start my-1">
-        <h4 className="font-bold text-large my-1">{titulo}</h4>
+        <h4 className="font-bold text-xl my-1">{titulo}</h4>
         <small className="text-default-500 my-1">ref: {referencia}</small>
       </CardHeader>
       <CardBody className="overflow-visible">
@@ -29,8 +29,8 @@ export default function CustomCard({ imagem, cores, titulo, descricao, tamanho, 
           loading='lazy'
         />
         {cores && cores.length > 1 ? (
-          <CustomModal className='' modalTitle={modalTitle}>
-            <Card className="py-4">
+          <CustomModal className=' ' modalTitle={modalTitle}>
+            <Card className="py-4 p-2 bg-gradient-to-b dark:bg-zinc-800  ">
               <CardHeader className="pb-2 pt-2 px-4 flex-col items-start">
                 <ImageCard imagens={cores} loading={loading}/>
               </CardHeader>
@@ -47,7 +47,7 @@ export default function CustomCard({ imagem, cores, titulo, descricao, tamanho, 
           </CustomModal>
         ) : (
           <CustomModal className='' modalTitle={modalTitle}>
-          <Card className="py-4">
+          <Card className="py-4 ">
             <CardHeader className="pb-2 pt-2 px-4 flex-col items-start">
             <Image
           alt="Card background"

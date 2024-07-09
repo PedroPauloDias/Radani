@@ -1,6 +1,7 @@
 import React  from "react";
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
 import { LuMoveRight } from "react-icons/lu";
+import  {MyButton}  from './../myButton/index';
 
 export default function CustomModal({ children , modalTitle}) {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -9,13 +10,12 @@ export default function CustomModal({ children , modalTitle}) {
 
   return (
     <>
-      <Button onPress={onOpen}
-      className="dark:bg-zinc-800 flex items-center justify-center mt-6 light:bg-zinc-300"
+      <MyButton onPress={onOpen} color="radani"
       >Ver todos os detalhes
       <LuMoveRight className="mt-.5" />
-      </Button>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement={modalPlacement}  backdrop={backdrop} className="dark:bg-zinc-800">
-        <ModalContent>
+      </MyButton>
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement={modalPlacement}  backdrop={backdrop}  className="dark:bg-zinc-800">
+        <ModalContent  >
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1 mt-4 text-2xl">
@@ -27,9 +27,9 @@ export default function CustomModal({ children , modalTitle}) {
               </ModalBody>
               <ModalFooter>
               
-                <Button color="default" onPress={onClose}>
+                <MyButton color="radani" onPress={onClose}>
                   Fechar
-                </Button>
+                </MyButton>
               </ModalFooter>
             </>
           )}
