@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { getProductsByTag } from '../../../services/categoryService';
 import CustomSkeleton from '@/components/skeleton';
@@ -14,6 +14,7 @@ export default function Categoria() {
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const topRef = useRef(null); // Referência para o topo da página
 
   useEffect(() => {
     async function fetchCategoriesByTag(page) {
@@ -27,16 +28,20 @@ export default function Categoria() {
         setCurrentPage(response.currentPage);
 
         setLoading(false);
+
+        // Após atualizar os dados, rola de volta para o topo da página
+        if (topRef.current) {
+          topRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
       } catch (error) {
         console.error("Erro ao buscar categorias:", error);
-        setError(error); // Define o erro capturado para exibir na interface
         setLoading(false);
       }
     }
     
-    fetchCategoriesByTag(currentPage); // Inicial carga com a página atual
+    fetchCategoriesByTag(currentPage);
 
-  }, [id, currentPage]); // Atualização base de dados aos utilizando assim useCallback
+  }, [id, currentPage]);
 
   function handlePageChange(pageNumber) {
     setCurrentPage(pageNumber); // Atualiza currentPage ao mudar de página
@@ -44,17 +49,14 @@ export default function Categoria() {
 
   return (
     <DefaultLayout>
+      <div ref={topRef} /> {/* Referência para o topo da página */}
       <div className='w-full flex flex-col gap-2 my-8'>
         <h2 className='text-3xl font-semibold mb-2 '> {id}</h2>
         <div className="w-full h-[4px] mb-8 bg-gradient-to-r from-[#ee9c2e] via-[#85adb5] to-transparent"></div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {loading ? (
-            // Renderiza o esqueleto enquanto está carregando
             <CustomSkeleton />
-          ) : error ? (
-            // Exibe mensagem de erro se houver um erro
-            <div>Erro ao carregar categorias: {error.message}</div>
           ) : (
             categories.map(category => (
               <CustomCard
@@ -77,7 +79,9 @@ export default function Categoria() {
           )}
         </div>
       </div>
+      <div className='my-8'>
       <MyPagination totalPages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} />
+      </div>
     </DefaultLayout>
   );
 }
