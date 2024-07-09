@@ -11,7 +11,7 @@ export default function CustomModal({ children , modalTitle}) {
   return (
     <>
       <div className="flex justify-start mt-4">
-      <MyButton onPress={onOpen} color="radani" className=" max-w-[32] flex items-center justify-center text-sm gap-2 p-2"
+      <MyButton onPress={onOpen} color="radani" className=" max-w-[36] flex items-center justify-center text-sm gap-2 p-2"
       >Detalhes
       <LuMoveRight className="" />
       </MyButton>
