@@ -15,7 +15,7 @@ export const MyButton = extendVariants(Button, {
     size: {
       xs: "px-2 min-w-12 h-4 text-tiny gap-1 rounded-small",
       md: "px-4 min-w-20 h-6 text-small gap-2 rounded-small",
-      xl: "px-8 min-w-28 h-10 text-large font-semi gap-4 mt-4 rounded-xl",
+      xl: "px-6 min-w-24 h-8 text-large font-semi gap-4 my-2  rounded-md ",
     },
   },
   defaultVariants: {

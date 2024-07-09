@@ -26,7 +26,7 @@ export default function DisplayCard({ imagem, titulo, descricao, tag , tamanho, 
   
 
   return (
-    <Card className="py-4 p-2 hover:dark:bg-zinc-800">
+    <Card className="py-6 p-2 hover:dark:bg-zinc-800 rounded-md">
       <CardHeader className="pb-2 pt-2 px-4 flex-col items-start">
         <h4 className="font-bold text-xl ">{titulo}</h4>
         <p className="text-tiny uppercase font-bold">{descricao}</p>
@@ -35,7 +35,7 @@ export default function DisplayCard({ imagem, titulo, descricao, tag , tamanho, 
       <CardBody className="overflow-visible py-2">
         <Image
           alt="Card background"
-          className="w-full object-cover rounded-xl "
+          className="w-full object-cover rounded-md "
           src={imagem}
           width={270}
           height={270}

@@ -10,10 +10,12 @@ export default function CustomModal({ children , modalTitle}) {
 
   return (
     <>
-      <MyButton onPress={onOpen} color="radani"
-      >Ver todos os detalhes
-      <LuMoveRight className="mt-.5" />
+      <div className="flex justify-start mt-4">
+      <MyButton onPress={onOpen} color="radani" className=" max-w-[32] flex items-center justify-center text-sm gap-2 p-2"
+      >Detalhes
+      <LuMoveRight className="" />
       </MyButton>
+      </div>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement={modalPlacement}  backdrop={backdrop}  className="dark:bg-zinc-800">
         <ModalContent  >
           {(onClose) => (

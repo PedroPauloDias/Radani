@@ -13,16 +13,16 @@ export default function HeroHeader() {
     <div>
       <CustomCarousel>   
         <div className=" w-full  flex items-center justify-center text-white">
-          <Image src={banner1} alt="Descrição da imagem" width={1800} height={600} className='rounded-2xl ' />
+          <Image src={banner1} alt="Descrição da imagem" width={1800} height={600} className='rounded-md ' />
         </div>
         <div className=" w-full  flex items-center justify-center text-white">
-          <Image src={banner2} alt="Descrição da imagem" width={1800} height={600} className='rounded-2xl ' />
+          <Image src={banner2} alt="Descrição da imagem" width={1800} height={600} className='rounded-md ' />
         </div>
         <div className=" w-full  flex items-center justify-center text-white">
-          <Image src={banner3} alt="Descrição da imagem" width={1800} height={600} className='rounded-2xl ' />
+          <Image src={banner3} alt="Descrição da imagem" width={1800} height={600} className='rounded-md ' />
         </div>
         <div className=" w-full  flex items-center justify-center text-white">
-          <Image src={banner4} alt="Descrição da imagem" width={1800} height={600} className='rounded-2xl ' />
+          <Image src={banner4} alt="Descrição da imagem" width={1800} height={600} className='rounded-md ' />
         </div>
       </CustomCarousel>
 

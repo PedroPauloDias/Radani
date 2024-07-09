@@ -14,7 +14,7 @@ export default function CustomCard({ imagem, cores, titulo, descricao, tamanho, 
   }
 
   return (
-    <Card className="py-4 p-2 ">
+    <Card className="py-4 p-2 rounded-md">
       <CardHeader className="pb-2 pt-2 px-4 flex-col items-start my-1">
         <h4 className="font-bold text-xl my-1">{titulo}</h4>
         <small className="text-default-500 my-1">ref: {referencia}</small>
@@ -22,7 +22,7 @@ export default function CustomCard({ imagem, cores, titulo, descricao, tamanho, 
       <CardBody className="overflow-visible">
         <Image
           alt="Card background"
-          className="w-full object-cover rounded-xl"
+          className="w-full object-cover rounded-md"
           src={imagem}
           width={270}
           height={300}
@@ -51,7 +51,7 @@ export default function CustomCard({ imagem, cores, titulo, descricao, tamanho, 
             <CardHeader className="pb-2 pt-2 px-4 flex-col items-start">
             <Image
           alt="Card background"
-          className="w-full object-cover rounded-xl"
+          className="w-full object-cover rounded-md"
           src={imagem}
           width={270}
           height={300}
