@@ -14,12 +14,13 @@ export default function CustomCard({ imagem, cores, titulo, descricao, tamanho, 
   }
 
   return (
-    <Card className="py-4 p-2 rounded-md">
+    <Card className="py-4 p-2 rounded-md ">
       <CardHeader className="pb-2 pt-2 px-4 flex-col items-start my-1">
         <h4 className="font-bold text-xl my-1">{titulo}</h4>
         <small className="text-default-500 my-1">ref: {referencia}</small>
       </CardHeader>
-      <CardBody className="overflow-visible">
+
+      <CardBody className="overflow-visible ">
         <Image
           alt="Card background"
           className="w-full object-cover rounded-md"
@@ -29,11 +30,37 @@ export default function CustomCard({ imagem, cores, titulo, descricao, tamanho, 
           loading='lazy'
         />
         {cores && cores.length > 1 ? (
-          <CustomModal className=' ' modalTitle={modalTitle}>
-            <Card className="py-4 p-2 bg-gradient-to-b dark:bg-zinc-800  ">
+          <CustomModal className=' ' modalTitle={modalTitle}   >
+            <Card className="py-4 p-2 bg-gradient-to-b dark:bg-zinc-800 lg:w-full "   >
+              <div className='w-full lg:flex'>
+
+                <CardHeader className="pb-2 pt-2 px-4 flex-col items-start lg:w-[70%]">
+                  <ImageCard imagens={cores} loading={loading} className='w-full '/>
+                </CardHeader>
+                <CardBody className="overflow-visible py-2 px-5  lg:w-full  lg:px-0">
+                  <div className='flex flex-col gap-2 '>
+                    <p className="font-bold text-large lg:text-lg">Nome: {titulo}</p>
+                    <p className="text-tiny font-bold lg:text-lg">Descrição: {descricao}</p>
+                    <p className="text-tiny font-bold lg:text-lg">Tamanho: {tamanho}</p>
+                    <p className="text-tiny font-bold  lg:text-lg" >Nº de referência: {referencia}</p>
+                    <small className="text-default-500">Código: {cod}</small>
+                  </div>
+                </CardBody>
+              </div>
+
+            </Card>
+          </CustomModal>
+        ) : (
+          <CustomModal className='' modalTitle={modalTitle}>
+            <Card className="py-4  ">
               <CardHeader className="pb-2 pt-2 px-4 flex-col items-start">
-                <ImageCard imagens={cores} loading={loading}/>
-              </CardHeader>
+                <Image
+                  alt="Card background"
+                  className="w-full object-cover rounded-md  "
+                  src={imagem}
+                
+                  loading='lazy'
+                />            </CardHeader>
               <CardBody className="overflow-visible py-2 px-5">
                 <div className='flex flex-col gap-2'>
                   <p className="font-bold text-large">Nome: {titulo}</p>
@@ -45,31 +72,9 @@ export default function CustomCard({ imagem, cores, titulo, descricao, tamanho, 
               </CardBody>
             </Card>
           </CustomModal>
-        ) : (
-          <CustomModal className='' modalTitle={modalTitle}>
-          <Card className="py-4  ">
-            <CardHeader className="pb-2 pt-2 px-4 flex-col items-start">
-            <Image
-          alt="Card background"
-          className="w-full object-cover rounded-md  "
-          src={imagem}
-          width={270}
-          height={300}
-          loading='lazy'
-        />            </CardHeader>
-            <CardBody className="overflow-visible py-2 px-5">
-              <div className='flex flex-col gap-2'>
-                <p className="font-bold text-large">Nome: {titulo}</p>
-                <p className="text-tiny font-bold">Descrição: {descricao}</p>
-                <p className="text-tiny font-bold">Tamanho: {tamanho}</p>
-                <p className="text-tiny font-bold">Nº de referência: {referencia}</p>
-                <small className="text-default-500">Código: {cod}</small>
-              </div>
-            </CardBody>
-          </Card>
-        </CustomModal>
         )}
       </CardBody>
-    </Card>
+
+    </Card >
   );
 }

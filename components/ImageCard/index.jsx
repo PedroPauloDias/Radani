@@ -10,14 +10,14 @@ export default function ImageCard({imagens , loading}) {
 
 
   return (
-    <div className="slider-container w-full max-w-3xl mx-auto relative">
-      <div className="flex justify-center items-center">
+    <div className="slider-container w-full  mx-auto relative  ">
+      <div className="flex justify-center items-center w-full">
         <Image
           src={imagemPrincipal}
           alt="Imagem Principal"
           width={500}
           height={300}
-          className="w-auto h-auto rounded-md"
+          className="w-auto h-auto  rounded-md  lg:w-[98%]  lg:rounded-md"
         />
       </div>
       <div className="thumbnails flex justify-center mt-4">

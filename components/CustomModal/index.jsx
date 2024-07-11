@@ -27,7 +27,7 @@ export default function CustomModal({ children , modalTitle}) {
       <LuMoveRight className="" />
       </MyButton>
       </div>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement={modalPlacement}  backdrop={backdrop} size='3xl' className="dark:bg-zinc-800">
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement={modalPlacement}  backdrop={backdrop} size='5xl' className="dark:bg-zinc-800 ">
         <ModalContent  >
           {(onClose) => (
             <>
