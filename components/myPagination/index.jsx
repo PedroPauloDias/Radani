@@ -2,7 +2,10 @@ import React from "react";
 import {Pagination } from "@nextui-org/react";
 
 
-export default function MyPagination({totalPages , currentPage , onPageChange}) {
+export default function MyPagination({ totalPages, currentPage, onPageChange }) {
+  
+
+  console.log("MyPagination currentPage: " , currentPage)
 
   const handlePageClick = (pageNumber) => {
     onPageChange(pageNumber); // Chama a função de mudança de página passada como prop

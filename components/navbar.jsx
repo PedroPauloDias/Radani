@@ -28,36 +28,26 @@ import {
 } from "@/components/icons";
 import LogoRadani from "../public/logo2.png"
 import Image from "next/image";
+import { useState } from "react";
 
-export const Navbar = () => {
-  const searchInput = (
-    <Input
-      aria-label="Search"
-      classNames={{
-        inputWrapper: "bg-default-100",
-        input: "text-sm",
-      }}
+export const Navbar = ({children}) => {
 
-      labelPlacement="outside"
-      placeholder="Search..."
-      startContent={
-        <SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
-      }
-      type="search"
-    />
-  );
+
+
+
+
+ 
 
   return (
-    <NextUINavbar maxWidth="xl" position="sticky">
-      <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-        <NavbarBrand className="gap-3 max-w-28 min-w-20">
+    <NextUINavbar maxWidth="xl" position="sticky"  >
+      <NavbarContent className="basis-1/5 sm:basis-full bg-red-500" justify="start">
+        <NavbarBrand className="gap-3 max-w-28 min-w-16">
           <NextLink className="flex justify-start items-center gap-1" href="/">
 
             <Image src={LogoRadani} height={200} width={350} alt='Logo da empresa Radani' />
-            <p className="font-bold text-inherit"></p>
           </NextLink>
         </NavbarBrand>
-        <div className="hidden sm:flex gap-4 justify-start ml-2">
+        <div className="hidden sm:flex gap-4 justify-start ml-1">
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
               <NextLink
@@ -81,31 +71,22 @@ export const Navbar = () => {
       >
         <NavbarItem className="hidden sm:flex gap-2">
 
+        </NavbarItem>
+        <NavbarItem className=" hidden md:flex">{children}</NavbarItem>
           <ThemeSwitch />
-        </NavbarItem>
-        <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
-        <NavbarItem className="hidden md:flex">
-          <Button
-            isExternal
-            as={Link}
-            className="text-sm font-normal text-default-600 bg-default-100"
-            href={siteConfig.links.sponsor}
-
-            variant="flat"
-          >
-            Login
-          </Button>
-        </NavbarItem>
+    
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-      
+        <div className=" bg-white md:flex">
+
+      {children}
+        </div>
         <ThemeSwitch />
         <NavbarMenuToggle />
       </NavbarContent>
 
       <NavbarMenu>
-        {searchInput}
         <div className="mx-4 mt-2 flex flex-col gap-2">
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
