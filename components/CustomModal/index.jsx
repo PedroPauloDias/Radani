@@ -8,15 +8,26 @@ export default function CustomModal({ children , modalTitle}) {
   const [modalPlacement, setModalPlacement] = React.useState("center");
   const [backdrop, setBackdrop] = React.useState('blur')
 
+  const [size, setSize] = React.useState('md')
+
+  const sizes = ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "full"];
+
+
+  const handleOpen = (size) => {
+    setSize(size)
+    onOpen();
+  }
+
   return (
     <>
       <div className="flex justify-start mt-4">
-      <MyButton onPress={onOpen} color="radani" className=" max-w-[36] flex items-center justify-center text-sm gap-2 p-2"
+        
+        <MyButton key={size} onPress={() => handleOpen(size)} color="radani" className=" max-w-[36] flex items-center justify-center text-sm gap-2 p-2"
       >Detalhes
       <LuMoveRight className="" />
       </MyButton>
       </div>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement={modalPlacement}  backdrop={backdrop}  className="dark:bg-zinc-800">
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement={modalPlacement}  backdrop={backdrop} size='3xl' className="dark:bg-zinc-800">
         <ModalContent  >
           {(onClose) => (
             <>

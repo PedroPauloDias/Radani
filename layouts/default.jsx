@@ -67,11 +67,11 @@ export default function DefaultLayout({ children }) {
         type="Search"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        placeholder="Buscar nº REF. ou Nome"
+        placeholder="Buscar nº REF. / Nome"
         endContent={
-          <SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
+          <SearchIcon className="text-sm text-default-400 pointer-events-none flex-shrink-0" />
         }
-            className="min-w-[100px] w-full p-2"
+            className=" text-sm min-w-[100px] w-full "
         >
         </Input>
       </Navbar>

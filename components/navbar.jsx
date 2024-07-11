@@ -32,15 +32,9 @@ import { useState } from "react";
 
 export const Navbar = ({children}) => {
 
-
-
-
-
- 
-
   return (
     <NextUINavbar maxWidth="xl" position="sticky"  >
-      <NavbarContent className="basis-1/5 sm:basis-full bg-red-500" justify="start">
+      <NavbarContent className="basis-1/5 sm:basis-full " justify="start">
         <NavbarBrand className="gap-3 max-w-28 min-w-16">
           <NextLink className="flex justify-start items-center gap-1" href="/">
 
@@ -77,9 +71,8 @@ export const Navbar = ({children}) => {
     
       </NavbarContent>
 
-      <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-        <div className=" bg-white md:flex">
-
+      <NavbarContent className="sm:hidden basis-1 " justify="end">
+        <div className=" md:flex ">
       {children}
         </div>
         <ThemeSwitch />

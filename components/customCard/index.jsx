@@ -47,11 +47,11 @@ export default function CustomCard({ imagem, cores, titulo, descricao, tamanho, 
           </CustomModal>
         ) : (
           <CustomModal className='' modalTitle={modalTitle}>
-          <Card className="py-4 ">
+          <Card className="py-4  ">
             <CardHeader className="pb-2 pt-2 px-4 flex-col items-start">
             <Image
           alt="Card background"
-          className="w-full object-cover rounded-md"
+          className="w-full object-cover rounded-md  "
           src={imagem}
           width={270}
           height={300}
