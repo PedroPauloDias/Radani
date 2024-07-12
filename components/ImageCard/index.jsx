@@ -17,7 +17,7 @@ export default function ImageCard({imagens , loading}) {
           alt="Imagem Principal"
           width={500}
           height={300}
-          className="w-auto h-auto  rounded-md  lg:w-[98%]  lg:rounded-md"
+          className="w-auto h-auto  rounded-md  md:w-[98%]  lg:rounded-md"
         />
       </div>
       <div className="thumbnails flex justify-center mt-4">

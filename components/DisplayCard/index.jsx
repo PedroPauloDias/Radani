@@ -7,6 +7,7 @@ import { LuMoveRight } from "react-icons/lu";
 import { useRouter } from 'next/navigation'
 import CustomModal from '../CustomModal';
 import CustomSkeleton from '../skeleton';
+import MyButton from '../myButton';
 
 export default function DisplayCard({ imagem, titulo, descricao, tag , tamanho, referencia, descButton, classe, id , loading }) {
   const router = useRouter()
@@ -27,8 +28,8 @@ export default function DisplayCard({ imagem, titulo, descricao, tag , tamanho, 
 
   return (
     <Card className="py-6 p-2 hover:dark:bg-zinc-800 rounded-md">
-      <CardHeader className="pb-2 pt-2 px-4 flex-col items-start">
-        <h4 className="font-bold text-xl ">{titulo}</h4>
+      <CardHeader className=" p-4 flex-col items-start">
+        <h4 className="font-semi text-2xl ">{titulo}</h4>
         <p className="text-tiny uppercase font-bold">{descricao}</p>
         <small className="text-default-500">{referencia}</small>
       </CardHeader>
@@ -41,14 +42,11 @@ export default function DisplayCard({ imagem, titulo, descricao, tag , tamanho, 
           height={270}
           loading='lazy'
         />
-        <button onClick={handleClick}
-          className='flex items-center justify-end mt-2 gap-2'>
+        <MyButton onClick={handleClick}
+            color="radani" className=" max-w-[36] flex items-center justify-center text-sm gap-2 p-2 mt-8 mb-3">
           ver mais
           <LuMoveRight className='mt-1' />
-        </button>
-       
-        
-
+        </MyButton>
       </CardBody>
     </Card>
 

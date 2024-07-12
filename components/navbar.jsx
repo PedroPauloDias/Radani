@@ -30,10 +30,11 @@ import LogoRadani from "../public/logo2.png"
 import Image from "next/image";
 import { useState } from "react";
 
-export const Navbar = ({children}) => {
+export const Navbar = () => {
+
 
   return (
-    <NextUINavbar maxWidth="xl" position="sticky"  >
+    <NextUINavbar maxWidth="2xl" position="sticky"  >
       <NavbarContent className="basis-1/5 sm:basis-full " justify="start">
         <NavbarBrand className="gap-3 max-w-28 min-w-16">
           <NextLink className="flex justify-start items-center gap-1" href="/">
@@ -41,7 +42,7 @@ export const Navbar = ({children}) => {
             <Image src={LogoRadani} height={200} width={350} alt='Logo da empresa Radani' />
           </NextLink>
         </NavbarBrand>
-        <div className="hidden sm:flex gap-4 justify-start ml-1">
+        <div className="hidden sm:flex gap-4 justify-start ml-1"    >
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
               <NextLink
@@ -66,40 +67,39 @@ export const Navbar = ({children}) => {
         <NavbarItem className="hidden sm:flex gap-2">
 
         </NavbarItem>
-        <NavbarItem className=" hidden md:flex">{children}</NavbarItem>
-          <ThemeSwitch />
-    
+        <ThemeSwitch />
+
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 " justify="end">
-        <div className=" md:flex ">
-      {children}
-        </div>
+       
         <ThemeSwitch />
-        <NavbarMenuToggle />
+        <NavbarMenuToggle  />
       </NavbarContent>
 
       <NavbarMenu>
-        <div className="mx-4 mt-2 flex flex-col gap-2">
+        <div className="mx-4 mt-2 flex flex-col gap-2"    >
           {siteConfig.navMenuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
+            <NavbarMenuItem key={`${item}-${index}`}
+            onClick={()=> toggleMenu()}
+
+            >
               <Link
-                color="foreground"                
-                
+                color="foreground"
                 href={item.href}
                 size="lg"
               >
                 {item.label}
               </Link>
-              
+
             </NavbarMenuItem>
           ))}
           <h2 className=' mt-16'>Redes Sociais</h2>
-              <div className='w-full flex gap-8 mt-2' >
-                <p><FaSquareFacebook size={20} /></p>
-                <p><FaInstagram size={20} /></p>
-                <p><BsTwitterX size={20} /></p>
-              </div>
+          <div className='w-full flex gap-8 mt-2' >
+            <p><FaSquareFacebook size={20} /></p>
+            <p><FaInstagram size={20} /></p>
+            <p><BsTwitterX size={20} /></p>
+          </div>
         </div>
       </NavbarMenu>
     </NextUINavbar>

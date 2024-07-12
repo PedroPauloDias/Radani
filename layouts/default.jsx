@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { getSearchProduct } from "@/services/productServices";
 import { Head } from "./head";
-import { Navbar } from "@/components/navbar";
 import { Footer } from "../components/footer/index";
 import SearchResultComponent from "../components/SearchResult/index";
 import MyPagination from "@/components/myPagination";
@@ -9,6 +8,7 @@ import CustomCard from "@/components/customCard";
 import CustomSkeleton from "@/components/skeleton";
 import { Input } from "@nextui-org/input";
 import { SearchIcon } from "@/components/icons";
+import { Navbar } from "@/components/navbar";
 
 export default function DefaultLayout({ children }) {
   const [searchResults, setSearchResults] = useState(null);
@@ -16,10 +16,8 @@ export default function DefaultLayout({ children }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [query, setQuery] = useState(""); // Estado para armazenar a query de busca
+  const [menuOpen, setMenuOpen] = useState(false)
 
-  const topRef = useRef(null);
-
-  // Função para lidar com a busca de produtos
 
 
   const handleSearch = async (query, page) => {
@@ -33,10 +31,7 @@ export default function DefaultLayout({ children }) {
       setCurrentPage(response.currentPage);
       setLoading(false);
 
-      // Scroll para o topo da página após a busca
-      if (topRef.current) {
-        topRef.current.scrollIntoView({ behavior: "smooth" });
-      }
+  
     } catch (error) {
       console.error("Erro ao buscar Produtos:", error);
       setSearchResults(null);
@@ -58,36 +53,51 @@ export default function DefaultLayout({ children }) {
   };
 
 
+  useEffect(() => {
+    if (query.length >= 1) {
+      setMenuOpen(menuOpen);
+    } if (query.length < 1) {
+      setSearchResults(null);
+    } else {
+      setMenuOpen(false);
+    }
+  }, [query]);
+
+
+
+  
+
+
   return (
     <div className="relative flex flex-col h-screen">
       <Head />
-      <div  className="w-full lg:flex items-center  ">
-        <Navbar onSearch={handleSearch} >
+      <Navbar onSearch={handleSearch} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      <div className="flex items-center justify-end mr-8 lg:flex    ">
         <Input
-        type="Search"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Buscar nº REF. / Nome"
-        endContent={
-          <SearchIcon className="text-sm text-default-400 pointer-events-none flex-shrink-0" />
-        }
-            className=" text-sm min-w-[100px] w-full "
-        >
-        </Input>
-      </Navbar>
-   
-        </div>
+          onFocus={() => setMenuOpen(true)}
+          type="Search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Buscar nº REF. / Nome"
+          endContent={
+            <SearchIcon className="text-sm text-default-400 pointer-events-none flex-shrink-0" />
+          }
+          className='max-w-sm  w-2/6 min-w-36 xl:mr-[300px] '
+        />
+
+      </div>
 
       <main className="container mx-auto max-w-7xl px-6 flex-grow pt-8">
         {searchResults ? (
           <>
-            <div ref={topRef}></div> {/* Ref para scrollIntoView */}
             <SearchResultComponent
               produtos={searchResults}
               loading={loading}
               totalPages={totalPages}
               currentPage={currentPage}
               onPageChange={handlePageChange}
+              setSearchResults={setSearchResults}
+              setQuery={setQuery}
             />
             <div className="my-8">
               {/* Renderiza o componente de paginação se houver mais de uma página */}
