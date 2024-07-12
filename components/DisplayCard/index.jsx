@@ -24,8 +24,6 @@ export default function DisplayCard({ imagem, titulo, descricao, tag , tamanho, 
     return <CustomSkeleton />; 
   }
 
-  
-
   return (
     <Card className="py-6 p-2 hover:dark:bg-zinc-800 rounded-md">
       <CardHeader className=" p-4 flex-col items-start">
@@ -43,9 +41,9 @@ export default function DisplayCard({ imagem, titulo, descricao, tag , tamanho, 
           loading='lazy'
         />
         <MyButton onClick={handleClick}
-            color="radani" className=" max-w-[36] flex items-center justify-center text-sm gap-2 p-2 mt-8 mb-3">
+            color="radani" className=" max-w-28 flex items-center justify-center text-sm gap-2 p-2 mt-8 mb-3">
           ver mais
-          <LuMoveRight className='mt-1' />
+          <LuMoveRight className='mt-1'/>
         </MyButton>
       </CardBody>
     </Card>
