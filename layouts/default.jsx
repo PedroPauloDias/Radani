@@ -78,7 +78,7 @@ export default function DefaultLayout({ children }) {
           type="Search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Buscar nº REF. / Nome"
+          placeholder=" Buscar "
           endContent={
             <SearchIcon className="text-sm text-default-400 pointer-events-none flex-shrink-0" />
           }
