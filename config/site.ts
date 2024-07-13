@@ -25,8 +25,8 @@ export const siteConfig = {
       href: "/categorias/Bandana",
     },
     {
-      label: "Novidades",
-      href: "/categorias/Novidade",
+      label: "Lançamentos",
+      href: "/categorias/Lancamento",
     },
     {
       label: "Sobre nós",
@@ -50,8 +50,8 @@ export const siteConfig = {
       href: "/categorias/Bandana",
     },
     {
-      label: "Novidades",
-      href: "/categorias/Novidade",
+      label: "Lançamentos",
+      href: "/categorias/Lancamento",
     },
     {
       label: "Todos os Produtos",

@@ -31,7 +31,7 @@ export default function DefaultLayout({ children }) {
       setCurrentPage(response.currentPage);
       setLoading(false);
 
-  
+
     } catch (error) {
       console.error("Erro ao buscar Produtos:", error);
       setSearchResults(null);
@@ -52,7 +52,6 @@ export default function DefaultLayout({ children }) {
     setCurrentPage(pageNumber);
   };
 
-
   useEffect(() => {
     if (query.length >= 1) {
       setMenuOpen(menuOpen);
@@ -64,28 +63,26 @@ export default function DefaultLayout({ children }) {
   }, [query]);
 
 
-
-  
-
-
   return (
-    <div className="relative flex flex-col h-screen">
+    <div className=" flex flex-col h-screen  bg-blue-800 gap-4 relative">
       <Head />
-      <Navbar onSearch={handleSearch} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-      <div className="flex items-center justify-end mr-8 lg:flex    ">
-        <Input
-          onFocus={() => setMenuOpen(true)}
-          type="Search"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder=" Buscar "
-          endContent={
-            <SearchIcon className="text-sm text-default-400 pointer-events-none flex-shrink-0" />
-          }
-          className='max-w-sm  w-2/6 min-w-36 xl:mr-[300px] '
-        />
+          <Navbar onSearch={handleSearch} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      <div className="flex items-center w-full justify-center bg-red-200">
+      <div className="flex items-center justify-center max-w-2xl w-full mx-32 bg-red-900">
 
-      </div>
+          <Input
+            onFocus={() => setMenuOpen(true)}
+            type="Search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder=" Buscar "
+            endContent={
+              <SearchIcon className="text-sm text-default-400 pointer-events-none flex-shrink-0" />
+            }
+            className='max-w-xs   min-w-36  absolute top-20 right-6  xl:top-30  '
+          />
+        </div>
+       </div>
 
       <main className="container mx-auto max-w-7xl px-6 flex-grow pt-8">
         {searchResults ? (
