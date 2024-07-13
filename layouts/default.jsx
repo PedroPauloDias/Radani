@@ -64,7 +64,7 @@ export default function DefaultLayout({ children }) {
 
 
   return (
-    <div className=" flex flex-col h-screen  gap-4 relative">
+    <div className=" flex flex-col h-screen  gap-6 relative">
       <Head />
           <Navbar onSearch={handleSearch} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <div className="flex items-center w-full justify-center bg-red-200">
@@ -79,7 +79,7 @@ export default function DefaultLayout({ children }) {
             endContent={
               <SearchIcon className="text-sm text-default-400 pointer-events-none flex-shrink-0" />
             }
-            className='max-w-xs   min-w-36  absolute top-20 right-6  xl:top-30  '
+            className='max-w-xs   min-w-36  absolute top-20 right-6  '
           />
         </div>
        </div>
