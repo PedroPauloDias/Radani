@@ -113,7 +113,7 @@ export default function DefaultLayout({ children }) {
           children
         )}
         
-        <div className="flex gap-2 justify-end z-50 sticky bottom-3 cursor-pointer ">
+        <div className="flex gap-2 justify-end z-50 sticky bottom-3  cursor-pointer ">
             <WhatsAppButton />
           </div>
       </main>
