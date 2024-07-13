@@ -9,6 +9,7 @@ import CustomSkeleton from "@/components/skeleton";
 import { Input } from "@nextui-org/input";
 import { SearchIcon } from "@/components/icons";
 import { Navbar } from "@/components/navbar";
+import WhatsAppButton from './../components/whatsAppButton/index';
 
 export default function DefaultLayout({ children }) {
   const [searchResults, setSearchResults] = useState(null);
@@ -67,6 +68,9 @@ export default function DefaultLayout({ children }) {
     <div className=" flex flex-col h-screen w-full gap-5 relative">
       <Head />
       <Navbar onSearch={handleSearch} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      <div className="">
+      <WhatsAppButton />
+      </div>
       <div className="flex items-center w-full justify-center  ">
         <div className="flex items-center justify-center max-w-2xl w-full mx-32 ">
 
