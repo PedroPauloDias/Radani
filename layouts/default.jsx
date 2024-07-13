@@ -65,14 +65,13 @@ export default function DefaultLayout({ children }) {
 
 
   return (
-    <div className=" flex flex-col h-screen w-full gap-5 relative">
+    <div className=" flex flex-col h-full w-full gap-5 relative ">
+     
       <Head />
       <Navbar onSearch={handleSearch} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-      <div className="">
-      <WhatsAppButton />
-      </div>
       <div className="flex items-center w-full justify-center  ">
         <div className="flex items-center justify-center max-w-2xl w-full mx-32 ">
+          
 
           <Input
             onFocus={() => setMenuOpen(true)}
@@ -88,7 +87,8 @@ export default function DefaultLayout({ children }) {
         </div>
       </div>
 
-      <main className="container mx-auto max-w-7xl px-6 flex-grow pt-8">
+      <main className="container mx-auto max-w-7xl px-6 flex-grow pt-8 relative">
+     
         {searchResults ? (
           <>
             <SearchResultComponent
@@ -112,6 +112,10 @@ export default function DefaultLayout({ children }) {
         ) : (
           children
         )}
+        
+        <div className="flex gap-2 justify-end  z-50   sticky  bottom-5 cursor-pointer ">
+            <WhatsAppButton />
+          </div>
       </main>
       <div className="container mx-auto max-w-7xl">
         <Footer />

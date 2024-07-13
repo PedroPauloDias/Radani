@@ -5,6 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head />
       <body className="min-h-screen bg-background font-sans antialiased flex justify-center">
+        
         <Main />
         <NextScript />
       </body>
