@@ -64,10 +64,10 @@ export default function DefaultLayout({ children }) {
 
 
   return (
-    <div className=" flex flex-col h-screen w-full gap-6 relative">
+    <div className=" flex flex-col h-screen w-full gap-5 relative">
       <Head />
       <Navbar onSearch={handleSearch} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-      <div className="flex items-center w-full justify-center  bg-red-200">
+      <div className="flex items-center w-full justify-center  ">
         <div className="flex items-center justify-center max-w-2xl w-full mx-32 ">
 
           <Input
@@ -79,7 +79,7 @@ export default function DefaultLayout({ children }) {
             endContent={
               <SearchIcon className="text-sm text-default-400 pointer-events-none flex-shrink-0" />
             }
-            className='max-w-52 min-w-36 lg:max-w-64 absolute top-20 right-6 '
+            className='max-w-32 min-w-36 lg:max-w-64 absolute top-20 left-6 '
           />
         </div>
       </div>
