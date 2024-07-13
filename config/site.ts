@@ -26,7 +26,7 @@ export const siteConfig = {
     },
     {
       label: "Novidades",
-      href: "/categorias/Novidades",
+      href: "/categorias/Novidade",
     },
     {
       label: "Sobre nós",
@@ -51,7 +51,7 @@ export const siteConfig = {
     },
     {
       label: "Novidades",
-      href: "/categorias/Novidades",
+      href: "/categorias/Novidade",
     },
     {
       label: "Todos os Produtos",
