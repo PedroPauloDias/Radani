@@ -64,11 +64,11 @@ export default function DefaultLayout({ children }) {
 
 
   return (
-    <div className=" flex flex-col h-screen  bg-blue-800 gap-4 relative">
+    <div className=" flex flex-col h-screen  gap-4 relative">
       <Head />
           <Navbar onSearch={handleSearch} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <div className="flex items-center w-full justify-center bg-red-200">
-      <div className="flex items-center justify-center max-w-2xl w-full mx-32 bg-red-900">
+      <div className="flex items-center justify-center max-w-2xl w-full mx-32">
 
           <Input
             onFocus={() => setMenuOpen(true)}
