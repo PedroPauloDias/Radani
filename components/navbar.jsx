@@ -75,7 +75,7 @@ export const Navbar = () => {
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 " justify="end">
-
+          <MyButton onClick={() => router.push('/login')}  color="radani" size='sm'>Login</MyButton>
         <ThemeSwitch />
         <NavbarMenuToggle />
       </NavbarContent>
