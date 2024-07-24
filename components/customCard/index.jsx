@@ -11,6 +11,8 @@ export default function CustomCard({ imagem, cores, titulo, descricao, tamanho, 
   if (loading) {
     return <CustomSkeleton />;
   }
+  
+
 
   return (
     <Card className="py-4 p-2 rounded-md ">
@@ -40,7 +42,6 @@ export default function CustomCard({ imagem, cores, titulo, descricao, tamanho, 
                     <p className="text-tiny font-bold lg:text-lg">Descrição: {descricao}</p>
                     <p className="text-tiny font-bold lg:text-lg">Tamanho: {tamanho}</p>
                     <p className="text-tiny font-bold lg:text-lg" >Nº de referência: {referencia}</p>
-                    {/* <small className="text-default-500">Código: {cod}</small> */}
                   </div>
                 </CardBody>
               </div>
@@ -65,8 +66,8 @@ export default function CustomCard({ imagem, cores, titulo, descricao, tamanho, 
                     <p className="font-bold text-large lg:text-lg">Nome: {titulo}</p>
                     <p className="text-tiny font-bold lg:text-lg">Descrição: {descricao}</p>
                     <p className="text-tiny font-bold lg:text-lg">Tamanho: {tamanho}</p>
-                    <p className="text-tiny font-bold lg:text-lg">Nº de referência: {referencia}</p>
-                    <small className="text-default-500">Código: {cod}</small>
+                    <p className="text-tiny font-bold lg:text-lg">Ref: {referencia}</p>
+                    {/* <small className="text-default-500">Código: {cod}</small> */}
                   </div>
                 </CardBody>
               </div>

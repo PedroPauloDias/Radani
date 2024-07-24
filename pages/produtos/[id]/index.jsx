@@ -56,7 +56,7 @@ export default function ProdutoIndividual() {
             titulo={produto.name}
             cores={produto.cores}
           descricao={produto.description}
-          tamanho={produto.tamanho}
+          tamanho={produto.sizes}
           referencia={produto.ref}
           descButton='ver mais'
           classe='id'

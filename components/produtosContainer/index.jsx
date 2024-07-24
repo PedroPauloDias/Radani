@@ -2,15 +2,11 @@
 
 import React, { useEffect, useState } from 'react';
 import { title } from '@/components/primitives';
-import ref440 from '../../public/ref440.jpg';
-import ref512 from '../../public/ref512.jpg';
-import ref520 from '../../public/ref520.jpg';
-import ref530 from '../../public/ref530.jpg';
-import ref541 from '../../public/ref541.jpg';
-import ref455 from '../../public/ref455.jpg';
+
 import { useRouter } from 'next/navigation';
 import CustomCard from '../customCard';
 import { getAllProducts } from '@/services/productServices';
+import DisplayCard from '../DisplayCard';
 
 
 
@@ -51,7 +47,7 @@ export default function ProdutosContainer() {
 
         {
           limitedProducts.map((produto) => (
-            <CustomCard
+            <DisplayCard
             key={produto.id}
             imagem={produto.image}
             cores={produto.cores}
@@ -60,7 +56,7 @@ export default function ProdutosContainer() {
             tamanho={produto.tamanho}
             referencia={produto.ref}
             classe='id'
-            id={produto.id}
+            id={produto._id}
             modalTitle={'Detalhes do ' + produto.name}
             loading={loading} // Corrigido para passar o estado correto de loading
             descButton='detalhes'
