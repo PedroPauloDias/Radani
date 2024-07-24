@@ -11,6 +11,7 @@ export default function Produtos() {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
 
+
   useEffect(() => {
     async function fetchProducts() {
       try {
@@ -34,7 +35,6 @@ export default function Produtos() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {loading ? (
-            // Renderiza o esqueleto enquanto está carregando
             <CustomSkeleton />
           ) : (
             // Mapeia os produtos para exibir os cards
@@ -45,13 +45,13 @@ export default function Produtos() {
                 cores={produto.cores}
                 titulo={produto.name}
                 descricao={produto.description}
-                tamanho={produto.tamanho}
+                tamanho={produto.sizes}
                 referencia={produto.ref}
                 descButton='ver mais'
                 classe='id'
                 id={produto.id}
                 modalTitle={'Detalhes do ' + produto.name}
-                loading={loading} // Corrigido para passar o estado correto de loading
+                loading={loading} 
               />
             ))
           )}

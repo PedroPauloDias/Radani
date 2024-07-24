@@ -5,9 +5,11 @@ import { extendVariants, Button } from "@nextui-org/react";
 export const MyButton = extendVariants(Button, {
   variants: {
     color: {
-      radani: "text-[#fff] bg-[#85adb5] dark:text-[#fff] dark:bg-[#ff9100ce]",
+      radani: "text-[#fff]  dark:text-[#fff] dark:bg-[#ff9100ce]",
+      radani2: "text-[#fff] bg-[#ff9100ce] dark:text-[#fff] dark:bg-[#85adb5]",
       orange: "bg-[#885414] text-[#fff] dark:bg-[#d83e0a] dark:text-[#000]",
       violet: "bg-[#8b5cf6] text-[#fff] dark:bg-[#4a4e69] dark:text-[#ffcc00]",
+
     },
     isDisabled: {
       true: "bg-[#eaeaea] text-[#000] opacity-50 cursor-not-allowed dark:bg-[#555555] dark:text-[#aaa]",

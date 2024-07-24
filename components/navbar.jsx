@@ -29,9 +29,12 @@ import {
 import LogoRadani from "../public/logo2.png"
 import Image from "next/image";
 import { useState } from "react";
+import MyButton from "./myButton";
+import { useRouter } from "next/navigation";
 
 export const Navbar = () => {
 
+  const router = useRouter()
 
   return (
     <NextUINavbar maxWidth="2xl" position="sticky"  >
@@ -65,23 +68,23 @@ export const Navbar = () => {
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-2">
-
+          <MyButton onClick={() => router.push('/login')}  color="radani" size='sm'>Login</MyButton>
         </NavbarItem>
         <ThemeSwitch />
 
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 " justify="end">
-       
+
         <ThemeSwitch />
-        <NavbarMenuToggle  />
+        <NavbarMenuToggle />
       </NavbarContent>
 
       <NavbarMenu>
         <div className="mx-4 mt-2 flex flex-col gap-2"    >
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}
-            onClick={()=> toggleMenu()}
+              onClick={() => toggleMenu()}
 
             >
               <Link

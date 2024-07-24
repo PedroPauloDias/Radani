@@ -61,12 +61,12 @@ export default function CustomCard({ imagem, cores, titulo, descricao, tamanho, 
                     loading='lazy'
                   />
                 </CardHeader>
-                <CardBody className="overflow-visible py-2 px-5  md:w-full  mdlg::px-0">
+                <CardBody className="overflow-visible py-2 px-5  md:w-full  ">
                   <div className='flex flex-col gap-2'>
-                    <p className="font-bold text-large lg:text-lg">Nome: {titulo}</p>
-                    <p className="text-tiny font-bold lg:text-lg">Descrição: {descricao}</p>
-                    <p className="text-tiny font-bold lg:text-lg">Tamanho: {tamanho}</p>
-                    <p className="text-tiny font-bold lg:text-lg">Ref: {referencia}</p>
+                    <p className="font-bold text-large md:text-lg">Nome: {titulo}</p>
+                    <p className="text-tiny font-bold md:text-lg">Descrição: {descricao}</p>
+                    <p className="text-tiny font-bold md:text-lg">Tamanho: {tamanho}</p>
+                    <p className="text-tiny font-bold md:text-lg">Ref: {referencia}</p>
                     {/* <small className="text-default-500">Código: {cod}</small> */}
                   </div>
                 </CardBody>

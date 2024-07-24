@@ -18,8 +18,8 @@ export default function CategoriasPage() {
 
   async function fetchCategories() {
     try {
-      const response = await getAllCategories(currentPage, itemsPerPage); // Chama getAllCategories com currentPage e itemsPerPage
-      setCategories(response.data); // Ajusta para setar diretamente response.data, assumindo que a estrutura de dados está correta
+      const response = await getAllCategories(currentPage, itemsPerPage); 
+      setCategories(response.data);
       setLoading(false);
     } catch (error) {
       console.error('Erro ao buscar categorias:', error);

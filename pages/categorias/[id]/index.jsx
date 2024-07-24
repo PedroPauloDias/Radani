@@ -21,7 +21,7 @@ export default function Categoria() {
       try {
         setLoading(true);
         const response = await getProductsByTag(id, page);
-        console.log("Categoria:", response);
+        console.log("Produtos da Categoria:", response);
 
         setCategories(response.produtos);
         setTotalPages(response.totalPages);
@@ -47,6 +47,14 @@ export default function Categoria() {
     setCurrentPage(pageNumber); // Atualiza currentPage ao mudar de página
   }
 
+  const sortedCategories = [...categories].sort((a, b) => {
+    const refA = parseInt(a.ref, 10);
+    const refB = parseInt(b.ref, 10);
+    return refA - refB;
+  });
+
+  console.log('sortedCategories', sortedCategories);
+  
   return (
     <DefaultLayout>
       <div ref={topRef} /> {/* Referência para o topo da página */}
@@ -60,7 +68,7 @@ export default function Categoria() {
           ) : (
             categories.map(category => (
               <CustomCard
-                key={category.id}
+                key={category._id}
                 imagem={category.image}
                 titulo={category.name}
                 cores={category.cores}
