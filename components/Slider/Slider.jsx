@@ -6,9 +6,14 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import './Slider.css';
+import '../../styles/Slider.css'
+
+
+
 
 export default function Slider({ children, settings }) {
+
+  
   return (
     <Swiper
     modules={[Navigation, Pagination, A11y]}
@@ -21,5 +26,7 @@ export default function Slider({ children, settings }) {
     </Swiper>
   )
 }
+
+
 
 
