@@ -12,14 +12,13 @@ import { Navbar } from "@/components/navbar";
 import WhatsAppButton from './../components/whatsAppButton/index';
 
 export default function DefaultLayout({ children }) {
+
   const [searchResults, setSearchResults] = useState(null);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [query, setQuery] = useState(""); // Estado para armazenar a query de busca
   const [menuOpen, setMenuOpen] = useState(false)
-
-
 
   const handleSearch = async (query, page) => {
     try {
@@ -70,10 +69,8 @@ export default function DefaultLayout({ children }) {
       <Head />
       <Navbar onSearch={handleSearch} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <div className="flex items-center w-full justify-center  ">
-        <div className="flex items-center justify-center max-w-2xl w-full mx-32 ">
-          
-
-          <Input
+        <div className="flex items-center justify-center max-w-2xl w-full mx-32 ">        
+       <Input
             onFocus={() => setMenuOpen(true)}
             type="Search"
             value={query}
@@ -86,9 +83,7 @@ export default function DefaultLayout({ children }) {
           />
         </div>
       </div>
-
-      <main className="container mx-auto max-w-7xl px-6 flex-grow pt-8 relative">
-     
+      <main className="container mx-auto max-w-7xl px-6 flex-grow pt-8 relative"> 
         {searchResults ? (
           <>
             <SearchResultComponent
@@ -111,8 +106,7 @@ export default function DefaultLayout({ children }) {
           </>
         ) : (
           children
-        )}
-        
+        )}       
         <div className="flex gap-2 justify-end z-50 sticky bottom-3  cursor-pointer ">
             <WhatsAppButton />
           </div>
