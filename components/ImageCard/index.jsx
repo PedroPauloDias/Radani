@@ -65,7 +65,7 @@ export default function ImageCard({ imagens, loading }) {
                 width={100}
                 height={60}
                  loading="lazy"
-                className={`object-cover rounded-md border-2 min-w-20 ${index === currentIndex ? 'border-blue-500' : 'border-transparent'}`}
+                className={`object-cover rounded-md border-2 min-w-20 ${index === currentIndex ? 'border-[#85adb5]' : 'border-transparent'}`}
               />
                 </button>
                 </SwiperSlide>    
