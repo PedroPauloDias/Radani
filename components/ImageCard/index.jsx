@@ -15,10 +15,9 @@ export default function ImageCard({ imagens, loading }) {
   const settings = {
     spaceBetween: 1,
     slidesPerView: 3,
-    navigation: true,
     pagination: {
       clickable: true,
-    },
+    }
   };
   
 

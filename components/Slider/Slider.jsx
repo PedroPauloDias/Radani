@@ -6,7 +6,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import '../../styles/Slider.css'
+import styles from './Slider.module.css'
 
 
 
@@ -16,12 +16,12 @@ export default function Slider({ children, settings }) {
   
   return (
     <Swiper
-    modules={[Navigation, Pagination, A11y]}
+    modules={[ Pagination, A11y]}
 
     onSwiper={(swiper) => console.log(swiper)}
     onSlideChange={() => console.log('slide change')}
     {...settings}
-     className="max-w-xl  ">
+     className={styles.swiper}>
       {children}
     </Swiper>
   )
