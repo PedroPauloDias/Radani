@@ -1,8 +1,7 @@
 import mongoose, { Schema, models } from "mongoose";
 
 const userSchema = new Schema(
-  {
- 
+  { 
     email: {
       type: String,
       required: true,
@@ -11,10 +10,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    role: {
-      type: String,
-      required: true,
-    }
+  
   },
   { timestamp: true }
 );

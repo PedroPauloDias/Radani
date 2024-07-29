@@ -18,6 +18,18 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/produtos/index.jsx", "components/navbar.jsx", "layouts/default.jsx"],
+"include": [
+  "next-env.d.ts",
+  "**/*.ts",
+  "**/*.tsx",
+  "**/*.jsx",
+  "**/*.js",
+  "**/*.mjs",
+  "pages/produtos/index.jsx",
+  "components/navbar.jsx",
+  "layouts/default.jsx",
+  "testConnection.js"
+],
+
   "exclude": ["node_modules"]
 }

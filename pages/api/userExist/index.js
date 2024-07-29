@@ -1,23 +1,17 @@
-// pages/api/userexist.js
-import { MongoClient } from 'mongodb';
+import { connectMongoDB } from "@/lib/mongodb";
+import User from "@/models/user";
+import { NextResponse } from "next/server";
 
-export default async function handler(req, res) {
-  if (req.method === 'POST') {
-    const { email } = req.body;
 
-    try {
-      const client = await MongoClient.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-      const db = client.db();
-      const user = await db.collection('users').findOne({ email });
+export async function POST(req) {
+  try {
+    await connectMongoDB();
+    const { email } = await req.json();
+    const user = await User.findOne({ email }).select("_id");
+    console.log("user : ", user)
+    return NextResponse.json({user})
+  } catch (error) {
+    console.log(error)
 
-      client.close();
-
-      res.status(200).json({ user: !!user });
-    } catch (error) {
-      res.status(500).json({ message: 'Erro ao verificar o usuário.' });
-    }
-  } else {
-    res.setHeader('Allow', ['POST']);
-    res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }

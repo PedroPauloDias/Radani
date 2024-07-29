@@ -1,31 +1,36 @@
-import User from "../../../models/user";
-import connect from "../../../lib/db";
-import bcrypt from "bcrypt";
-import { NextResponse } from "next/server";
+import connectMongoDB from "../../../lib/mongodb.mjs";
+import bcrypt from "bcryptjs";
+import mongoose from "mongoose";
 
-export const POST = async (request) => {
-  const { email, password } = await request.json();
+const userSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+}, { timestamps: true });
 
-  await connect();
+const User = mongoose.models.User || mongoose.model('User', userSchema);
 
-  const existingUser = await User.findOne({ email });
-
-  if (existingUser) {
-    return new NextResponse("Email is already in use", { status: 400 });
+export default async function handler(req, res) {
+  if (req.method === 'POST') {
+    try {
+      const { email, password } = req.body;
+      const hashedPassword = await bcrypt.hash(password, 10);
+      await connectMongoDB();
+      await User.create({ email, password: hashedPassword });
+      res.status(201).json({ message: "Usuário cadastrado" });
+    } catch (error) {
+      console.error("Erro ao cadastrar usuário:", error);
+      res.status(500).json({ message: "Ocorreu um erro ao cadastrar o usuário" });
+    }
+  } else {
+    // Método não permitido
+    res.setHeader('Allow', ['POST']);
+    res.status(405).end(`Método ${req.method} não permitido`);
   }
-
-  const hashedPassword = await bcrypt.hash(password, 5);
-  const newUser = new User({
-    email,
-    password: hashedPassword,
-  });
-
-  try {
-    await newUser.save();
-    return new NextResponse("user is registered", { status: 200 });
-  } catch (err) {
-    return new NextResponse(err, {
-      status: 500,
-    });
-  }
-};
+}

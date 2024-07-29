@@ -5,23 +5,24 @@ import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 
 export default function Register()  {
-
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
 
 
-
+  
   const isValidEmail = (email) => {
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     return emailRegex.test(email);
   };
-
   
   const handleSubmit = async (e) => {
     e.preventDefault();
     const email = e.target[0].value;
     const password = e.target[1].value;
-    console.log("A PORRA DOS DADOS ",email,password);
+    console.log(email, password);
 
     if (!isValidEmail(email)) {
       setError("Email is invalid");
@@ -34,7 +35,7 @@ export default function Register()  {
     }
 
     try {
-      const res = await fetch("/api/register", {
+      const res = await fetch("http://localhost:3000/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -43,6 +44,7 @@ export default function Register()  {
           email,
           password,
         }),
+
       });
       if (res.status === 400) {
         setError("This email is already registered");
@@ -55,9 +57,10 @@ export default function Register()  {
       setError("Error, try again");
       console.log(error);
     }
+    router.push('/')
+
   };
-
-
+  
 
   return (
       <div className="flex min-h-screen flex-col items-center justify-between p-24">
